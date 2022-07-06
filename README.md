@@ -70,7 +70,7 @@ This colors are available everywhere and are allready used in the components.
 ## Upadtes
 Updates can be conveniently pulled from git.
 You have to do this in the terminal:
-- `git remote add template https://github.com/paulboone/ticgit`
+- `git remote add template https://github.com/JonasFocke01/svelte-template`
 - `git pull --rebase template master`
 - _resolve all merge conflicts_
 - `git add *`
