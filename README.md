@@ -8,7 +8,7 @@ This template represents a ready-to-start sveltekit project with this features:
   - look at the examples provided
 - **.env** ready
   - Just use `process.env.USERNAME` in the file you want to import that
-  - This is **excluded** from git, so you can store your password there but **do not put your password in the .env.example with is **not excluded**!**
+  - This is **excluded** from git, so you can store your password there but **do not put your password in the .env.example wich is **not excluded**!**
 - **date-nfs** (to make js dates better)
   - docs: `https://date-fns.org/`
 - **js-sha256** (for password encryption)
