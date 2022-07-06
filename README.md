@@ -52,7 +52,7 @@ The tests are ready to be written in typescript.
 Themeing is done via tailwindcss.
 In the file `tailwind.config.js` you can configure the colors as you like.
 Currently there are
-THIS IS A TEST
+
 - primary: dark-blue
 - secondary: lighter-blue
 - accent: orange
