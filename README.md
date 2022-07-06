@@ -1,7 +1,7 @@
 # Svelte-template
 
 This template represents a ready-to-start sveltekit project with this features:
-asdf
+
 - **TailwindCSS**
   - ready to use
 - **Jest-testing** with the **svelte-testing-library**
