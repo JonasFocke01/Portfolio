@@ -65,4 +65,4 @@ Currently there are
 - text: white
 - black: black
 
-This colors are available everywhere and are allready used in the components
+This colors are available everywhere and are allready used in the components.
