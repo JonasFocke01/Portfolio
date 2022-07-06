@@ -27,6 +27,11 @@ a basic popup
 * string
 * default: ''
 * more control over the menu position
+
+**on:outsideClick**
+* function
+* default: () => {}
+* will be called when the user clicks outside the popup
  -->
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
@@ -57,7 +62,7 @@ a basic popup
 
   function handleOutsideClick(e: MouseEvent) {
     if (
-      document.getElementById(`InplacePopup${id}`).contains(e.target as Node)
+      !document.getElementById(`InplacePopup${id}`).contains(e.target as Node)
     ) {
       document.removeEventListener('click', handleOutsideClick, true);
       dispatch('outsideClick');
