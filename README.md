@@ -76,4 +76,4 @@ You have to do this in the terminal:
 - _resolve all merge conflicts_
 - `git add *`
 - git rebase --continue
-- _done_ (vscode might be a bit confused, but everything is fine)
+- _done_ (vscode might be a bit confused, but everything is fine).
