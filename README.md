@@ -20,7 +20,6 @@ This template represents a ready-to-start sveltekit project with this features:
     - `import { toast } from '@zerodevx/svelte-toast'`
     - `<Button on:click={() => toast.push('Hello world!')}>EMIT TOAST</Button>`
   - docs: `https://github.com/zerodevx/svelte-toast#Svelte`
-    - step one already done
 - **typescript support** in svelte and in test files
   - docs: `https://www.typescriptlang.org/`
 - **basic components** with pre-written tests and documentation
