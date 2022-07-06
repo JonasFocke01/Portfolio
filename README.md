@@ -66,3 +66,13 @@ Currently there are
 - black: black
 
 This colors are available everywhere and are allready used in the components.
+
+## Upadtes
+Updates can be conveniently pulled from git.
+You have to do this in the terminal:
+- `git remote add template https://github.com/paulboone/ticgit`
+- `git pull --rebase template master`
+- _resolve all merge conflicts_
+- `git add *`
+- git rebase --continue
+- _done_ (vscode might be a bit confused, but everything is fine)
