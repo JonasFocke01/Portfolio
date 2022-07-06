@@ -65,4 +65,8 @@ Currently there are
 - text: white
 - black: black
 
+<<<<<<< HEAD
 This colors are available everywhere and are allready used in the components.
+=======
+This colors are available everywhere and are allready used in the components
+>>>>>>> cb7acef (init)
