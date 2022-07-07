@@ -140,7 +140,12 @@
 <Card>
   <div class="flex flex-row">
     <div class="mb-4">
-      <Text {text} effect={filter ? ['italic'] : []} />
+      <Text
+        {text}
+        effect={filter ? ['italic'] : []}
+        textcolor="text"
+        size="large"
+      />
     </div>
     {#if filterable}
       <dig class="ml-auto mt-1">
@@ -163,11 +168,11 @@
           class:cursor-default={!selectable}
         >
           <div class="w-2/3">
-            <Text text={`> ${item.text}`} />
+            <Text text={`> ${item.text}`} textcolor="text" />
           </div>
           {#if !showCheckbox && item.value}
             <div class="w-2/3">
-              <Text text={`>${item.value}`} />
+              <Text text={`${item.value}`} textcolor="text" />
             </div>
           {:else}
             <Checkbox bind:checked={item.selected} label="" />
