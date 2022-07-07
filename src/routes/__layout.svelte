@@ -7,7 +7,7 @@
 <SvelteToast />
 
 <Header />
-<div class="w-full absolute h-screen">
+<div class="w-full absolute h-screen bg-primary scroll-smooth">
   <div class="m-4">
     <slot />
   </div>
