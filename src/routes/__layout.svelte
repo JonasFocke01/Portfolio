@@ -8,5 +8,7 @@
 
 <Header />
 <div class="w-full absolute bg-surface h-screen">
-  <slot />
+  <div class="m-4">
+    <slot />
+  </div>
 </div>
