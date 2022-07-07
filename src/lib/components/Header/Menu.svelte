@@ -31,7 +31,8 @@ a basic menu with basic animations
       name: 'DEVComponents',
       path: '/devComponents',
       selected: false
-    }
+    },
+    { name: 'Lebenslauf', path: '/resume', selected: false }
   ];
 
   function selectItem(item: MenuEntry) {
