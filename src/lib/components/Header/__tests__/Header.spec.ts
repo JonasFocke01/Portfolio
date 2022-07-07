@@ -27,5 +27,5 @@ it('renders', async () => {
     props: {}
   });
 
-  expect(getByText('Home')).toBeInTheDocument();
+  expect(getByText('Lebenslauf')).toBeInTheDocument();
 });
