@@ -34,7 +34,7 @@
     | 'info'
     | 'surface'
     | 'text'
-    | 'black' = 'black';
+    | 'black' = 'text';
   export let effect: Array<'underline' | 'bold' | 'italic' | 'strikethrough'> =
     ['bold'];
 </script>
