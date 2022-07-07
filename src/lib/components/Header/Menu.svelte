@@ -31,8 +31,7 @@ a basic menu with basic animations
       name: 'DEVComponents',
       path: '/devComponents',
       selected: false
-    },
-    { name: 'Lebenslauf', path: '/resume', selected: false }
+    }
   ];
 
   function selectItem(item: MenuEntry) {
@@ -56,7 +55,7 @@ a basic menu with basic animations
   {#if tempAnimationhelper}
     {#each menuEntrys as item}
       <li
-        class="hover:text-black transition duration-200 rounded-lg"
+        class="hover:text-accent transition duration-200 rounded-lg"
         class:hover:-mt-px={animate}
         class:hover:bg-primary={animate}
         class:hover:bg-opacity-20={animate}
