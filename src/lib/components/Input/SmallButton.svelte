@@ -31,7 +31,7 @@
   <span class="text-text" />
   <button
     on:click
-    class="block w-full text-sm font-bold text-text {additionalClasses} {color} hover:bg-opacity-90 hover:scale-105 active:scale-95 duration-100"
+    class="block w-full text-sm font-bold text-primary {additionalClasses} {color} hover:bg-opacity-90 hover:scale-105 active:scale-95 duration-100"
     >{label}
   </button>
 </label>

@@ -7,6 +7,6 @@
 <SvelteToast />
 
 <Header />
-<div class="bg-secondary h-screen">
+<div class="w-full absolute bg-surface h-screen">
   <slot />
 </div>
