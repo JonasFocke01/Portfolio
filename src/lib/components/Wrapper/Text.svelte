@@ -13,7 +13,7 @@
   
   **textcolor**
   * string: 'primary' | 'secondary' | 'accent' | 'success' | 'error' | 'warning' | 'info' | 'surface' | 'text' | 'black'
-  * default 'text'
+  * default 'black'
   * the color in wich the text should be displayed
   
   **effect**
@@ -34,7 +34,7 @@
     | 'info'
     | 'surface'
     | 'text'
-    | 'black' = 'text';
+    | 'black' = 'black';
   export let effect: Array<'underline' | 'bold' | 'italic' | 'strikethrough'> =
     ['bold'];
 </script>
