@@ -18,9 +18,3 @@
   import Table from '$lib/components/Wrapper/Table.svelte';
   import Text from '$lib/components/Wrapper/Text.svelte';
 </script>
-
-<div class="w-full flex flex-row justify-center mt-8">
-  <div class="w-1/2">
-    <NormalButton label="Hallo Welt" />
-  </div>
-</div>
