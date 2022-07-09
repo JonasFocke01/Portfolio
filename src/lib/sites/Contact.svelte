@@ -1,4 +1,55 @@
-<div class="divide-y-2">
-  <div>TODO</div>
-  <div>Downloadbereich</div>
+<script lang="ts">
+  import Text from '$lib/components/Wrapper/Text.svelte';
+</script>
+
+<div class="bg-secondary p-16">
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
+  <Text text="Kontakt" />
 </div>
