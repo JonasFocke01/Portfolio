@@ -15,11 +15,11 @@ module.exports = {
       black: '#000000'
     },
     extend: {
-      fontFamily: {
-        robotoslab: ['Roboto Slab', 'serif-serif'],
-        kouhlen: ['Koulen', 'serif-serif'],
-        lato: ['Lato', 'sans-serif']
-      }
+      // fontFamily: {
+      //   robotoslab: ['Roboto Slab', 'serif-serif'],
+      //   kouhlen: ['Koulen', 'serif-serif'],
+      //   lato: ['Lato', 'sans-serif']
+      // }
     }
   },
   plugins: []
