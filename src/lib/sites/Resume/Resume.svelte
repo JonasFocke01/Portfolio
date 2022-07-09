@@ -1,13 +1,14 @@
 <script lang="ts">
-  import Card from '$lib/components/Wrapper/Card.svelte';
   import Text from '$lib/components/Wrapper/Text.svelte';
-  import InplacePopup from '$lib/components/Wrapper/InplacePopup.svelte';
   import { fly, fade } from 'svelte/transition';
   import { cubicInOut } from 'svelte/easing';
   import { onMount } from 'svelte';
-  import BeamItem from '$lib/sites/home/BeamItem.svelte';
+  import BeamItem from '$lib/sites/Resume/BeamItem.svelte';
   import MediaQuery from '$lib/components/Wrapper/MediaQuery.svelte';
+  import NormalButton from '$lib/components/Input/NormalButton.svelte';
+  import { createEventDispatcher } from 'svelte';
 
+  const dispatcher = createEventDispatcher();
   let displayHint: boolean = true;
   let transitionStart = false;
 
@@ -17,7 +18,7 @@
 </script>
 
 {#if transitionStart}
-  <div class="mt-10 w-full justify-center flex flex-row">
+  <div class="p-10 w-full justify-center flex flex-row bg-primary">
     <div class="w-2/3 xl:divide-x-2 flex flex-col xl:flex-row text-center">
       <!-- left side -->
       <div class="w-1/2" in:fly={{ duration: 1000, x: 100 }}>

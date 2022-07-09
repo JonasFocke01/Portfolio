@@ -1,0 +1,55 @@
+<script lang="ts">
+  import Text from '$lib/components/Wrapper/Text.svelte';
+</script>
+
+<div class="bg-primary p-16">
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+  <Text text="Downloads" />
+</div>
