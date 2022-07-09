@@ -40,6 +40,7 @@
 </script>
 
 <p
+  id={text}
   class="text-text font-bold"
   class:text-sm={size === 'small'}
   class:text-xl={size === 'medium'}
