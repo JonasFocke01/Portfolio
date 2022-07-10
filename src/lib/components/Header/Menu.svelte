@@ -32,8 +32,9 @@ a basic menu with basic animations
     faTimeline,
     faPortrait
   } from '@fortawesome/free-solid-svg-icons';
-  import Contact from '$lib/sites/Contact.svelte';
-  import { logDOM } from '@testing-library/svelte';
+  import Contact from '$lib/Programs/Contact.svelte';
+  import { writable } from 'svelte/store';
+  import { openWindows } from '$lib/Stores/OpenWindows';
 
   const dispatcher = createEventDispatcher();
 
@@ -43,147 +44,147 @@ a basic menu with basic animations
     selected: boolean;
   }
 
-  export let currentWindow:
-    | 'Lander'
-    | 'Greetings'
-    | 'Contact'
-    | 'Downloads'
-    | 'Interests'
-    | 'Technologies'
-    | 'Resume' = 'Lander';
-
-  export let extended: boolean = false;
-  export let animate = true;
+  export const animate = true;
 
   let tempAnimationhelper = true;
 </script>
 
-{#if tempAnimationhelper}
+{#if tempAnimationhelper && $openWindows && $openWindows.length > 0}
   <div transition:fly={{ duration: 1000, x: 200 }}>
     <Card>
-      <div class="flex flex-col">
-        {#if extended}
-          <div
-            class="m-2 transition duration-200 text-{currentWindow === 'Lander'
-              ? 'primary'
-              : 'text'}"
-            class:hover:opacity-50={currentWindow !== 'Lander'}
-            class:cursor-pointer={currentWindow !== 'Lander'}
-            on:click={() => {
-              currentWindow = 'Lander';
-              dispatcher('windowChanged');
-            }}
-          >
-            <Fa icon={faPortrait} />
-          </div>
-          <div
-            class="m-2 transition duration-200  text-{currentWindow ===
-            'Greetings'
-              ? 'primary'
-              : 'text'}"
-            class:hover:opacity-50={currentWindow !== 'Greetings'}
-            class:cursor-pointer={currentWindow !== 'Greetings'}
-            on:click={() => {
-              currentWindow = 'Greetings';
-              dispatcher('windowChanged');
-            }}
-          >
-            <Fa icon={faAlignLeft} />
-          </div>
-          <div
-            class="m-2 transition duration-200 text-{currentWindow === 'Resume'
-              ? 'primary'
-              : 'text'}"
-            class:hover:opacity-50={currentWindow !== 'Resume'}
-            class:cursor-pointer={currentWindow !== 'Resume'}
-            on:click={() => {
-              currentWindow = 'Resume';
-              dispatcher('windowChanged');
-            }}
-          >
-            <Fa icon={faTimeline} />
-          </div>
-          <div
-            class="m-2 transition duration-200 text-{currentWindow ===
-            'Technologies'
-              ? 'primary'
-              : 'text'}"
-            class:hover:opacity-50={currentWindow !== 'Technologies'}
-            class:cursor-pointer={currentWindow !== 'Technologies'}
-            on:click={() => {
-              currentWindow = 'Technologies';
-              dispatcher('windowChanged');
-            }}
-          >
-            <Fa icon={faMicrochip} />
-          </div>
-          <div
-            class="m-2 transition duration-200 text-{currentWindow ===
-            'Downloads'
-              ? 'primary'
-              : 'text'}"
-            class:hover:opacity-50={currentWindow !== 'Downloads'}
-            class:cursor-pointer={currentWindow !== 'Downloads'}
-            on:click={() => {
-              currentWindow = 'Downloads';
-              dispatcher('windowChanged');
-            }}
-          >
-            <Fa icon={faCloudArrowDown} />
-          </div>
-          <div
-            class="m-2 transition duration-200 text-{currentWindow ===
-            'Interests'
-              ? 'primary'
-              : 'text'}"
-            class:hover:opacity-50={currentWindow !== 'Interests'}
-            class:cursor-pointer={currentWindow !== 'Interests'}
-            on:click={() => {
-              currentWindow = 'Interests';
-              dispatcher('windowChanged');
-            }}
-          >
-            <Fa icon={faGuitar} />
-          </div>
-          <div
-            class="m-2 transition duration-200 text-{currentWindow === 'Contact'
-              ? 'primary'
-              : 'text'}"
-            class:hover:opacity-50={currentWindow !== 'Contact'}
-            class:cursor-pointer={currentWindow !== 'Contact'}
-            on:click={() => {
-              currentWindow = 'Contact';
-              dispatcher('windowChanged');
-            }}
-          >
-            <Fa icon={faFileSignature} />
-          </div>
-        {:else}
-          <div
-            class="cursor-pointer m-2 hover:opacity-50 transition duration-200"
-            on:click={() => (extended = true)}
-          >
-            <Fa icon={faBars} />
-          </div>
-        {/if}
-
+      <div class="flex flex-row">
         <div
-          class="cursor-pointer m-2 transition duration-200 hover:opacity-50"
+          class="m-2 transition duration-200 text-{$openWindows[0].title ===
+          'Lander'
+            ? 'primary'
+            : 'text'}"
+          class:hover:opacity-50={$openWindows[0].title !== 'Lander'}
+          class:m-4={$openWindows.find((e) => e.title === 'Lander')}
+          class:cursor-pointer={$openWindows[0].title !== 'Lander'}
           on:click={() => {
-            if (currentWindow !== 'Lander') {
-              currentWindow = 'Lander';
-            } else {
-              currentWindow = 'Contact';
-            }
+            !$openWindows.find((e) => e.title === 'Lander')
+              ? openWindows.update((e) => [...e, { title: 'Lander' }])
+              : openWindows.update((e) =>
+                  e.filter((e) => e.title !== 'Lander')
+                );
             dispatcher('windowChanged');
           }}
         >
-          <Fa
-            class="{currentWindow !== 'Lander'
-              ? 'rotate-180'
-              : ''} transition duration-500"
-            icon={faArrowDown}
-          />
+          <Fa icon={faPortrait} />
+        </div>
+        <div
+          class="m-2 transition duration-200  text-{$openWindows[0].title ===
+          'Greetings'
+            ? 'primary'
+            : 'text'}"
+          class:hover:opacity-50={$openWindows[0].title !== 'Greetings'}
+          class:m-4={$openWindows.find((e) => e.title === 'Greetings')}
+          class:cursor-pointer={$openWindows[0].title !== 'Greetings'}
+          on:click={() => {
+            !$openWindows.find((e) => e.title === 'Greetings')
+              ? openWindows.update((e) => [...e, { title: 'Greetings' }])
+              : openWindows.update((e) =>
+                  e.filter((e) => e.title !== 'Greetings')
+                );
+            dispatcher('windowChanged');
+          }}
+        >
+          <Fa icon={faAlignLeft} />
+        </div>
+        <div
+          class="m-2 transition duration-200 text-{$openWindows[0].title ===
+          'Resume'
+            ? 'primary'
+            : 'text'}"
+          class:hover:opacity-50={$openWindows[0].title !== 'Resume'}
+          class:m-4={$openWindows.find((e) => e.title === 'Resume')}
+          class:cursor-pointer={$openWindows[0].title !== 'Resume'}
+          on:click={() => {
+            !$openWindows.find((e) => e.title === 'Resume')
+              ? openWindows.update((e) => [...e, { title: 'Resume' }])
+              : openWindows.update((e) =>
+                  e.filter((e) => e.title !== 'Resume')
+                );
+            dispatcher('windowChanged');
+          }}
+        >
+          <Fa icon={faTimeline} />
+        </div>
+        <div
+          class="m-2 transition duration-200 text-{$openWindows[0].title ===
+          'Technologies'
+            ? 'primary'
+            : 'text'}"
+          class:hover:opacity-50={$openWindows[0].title !== 'Technologies'}
+          class:m-4={$openWindows.find((e) => e.title === 'Technologies')}
+          class:cursor-pointer={$openWindows[0].title !== 'Technologies'}
+          on:click={() => {
+            !$openWindows.find((e) => e.title === 'Technologies')
+              ? openWindows.update((e) => [...e, { title: 'Technologies' }])
+              : openWindows.update((e) =>
+                  e.filter((e) => e.title !== 'Technologies')
+                );
+            dispatcher('windowChanged');
+          }}
+        >
+          <Fa icon={faMicrochip} />
+        </div>
+        <div
+          class="m-2 transition duration-200 text-{$openWindows[0].title ===
+          'Downloads'
+            ? 'primary'
+            : 'text'}"
+          class:hover:opacity-50={$openWindows[0].title !== 'Downloads'}
+          class:m-4={$openWindows.find((e) => e.title === 'Downloads')}
+          class:cursor-pointer={$openWindows[0].title !== 'Downloads'}
+          on:click={() => {
+            !$openWindows.find((e) => e.title === 'Downloads')
+              ? openWindows.update((e) => [...e, { title: 'Downloads' }])
+              : openWindows.update((e) =>
+                  e.filter((e) => e.title !== 'Downloads')
+                );
+            dispatcher('windowChanged');
+          }}
+        >
+          <Fa icon={faCloudArrowDown} />
+        </div>
+        <div
+          class="m-2 transition duration-200 text-{$openWindows[0].title ===
+          'Interests'
+            ? 'primary'
+            : 'text'}"
+          class:hover:opacity-50={$openWindows[0].title !== 'Interests'}
+          class:m-4={$openWindows.find((e) => e.title === 'Interests')}
+          class:cursor-pointer={$openWindows[0].title !== 'Interests'}
+          on:click={() => {
+            !$openWindows.find((e) => e.title === 'Interests')
+              ? openWindows.update((e) => [...e, { title: 'Interests' }])
+              : openWindows.update((e) =>
+                  e.filter((e) => e.title !== 'Interests')
+                );
+            dispatcher('windowChanged');
+          }}
+        >
+          <Fa icon={faGuitar} />
+        </div>
+        <div
+          class="m-2 transition duration-200 text-{$openWindows[0].title ===
+          'Contact'
+            ? 'primary'
+            : 'text'}"
+          class:hover:opacity-50={$openWindows[0].title !== 'Contact'}
+          class:m-4={$openWindows.find((e) => e.title === 'Contact')}
+          class:cursor-pointer={$openWindows[0].title !== 'Contact'}
+          on:click={() => {
+            !$openWindows.find((e) => e.title === 'Contact')
+              ? openWindows.update((e) => [...e, { title: 'Contact' }])
+              : openWindows.update((e) =>
+                  e.filter((e) => e.title !== 'Contact')
+                );
+            dispatcher('windowChanged');
+          }}
+        >
+          <Fa icon={faFileSignature} />
         </div>
       </div>
     </Card>
