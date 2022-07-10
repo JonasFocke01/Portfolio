@@ -1,139 +1,110 @@
 <script lang="ts">
-  import Contact from '$lib/sites/Contact.svelte';
-  import Downloads from '$lib/sites/Downloads.svelte';
-  import Resume from '$lib/sites/Resume/Resume.svelte';
-  import Interests from '$lib/sites/Interests.svelte';
-  import Technologies from '$lib/sites/Technologies.svelte';
-  import Lander from '$lib/sites/Lander.svelte';
-  import Header from '$lib/components/Header/Header.svelte';
+  import Greeting from '$lib/Programs/Greeting.svelte';
+  import Contact from '$lib/Programs/Contact.svelte';
+  import Downloads from '$lib/Programs/Downloads.svelte';
+  import Resume from '$lib/Programs/Resume.svelte';
+  import Interests from '$lib/Programs/Interests.svelte';
+  import Technologies from '$lib/Programs/Technologies.svelte';
+  import Lander from '$lib/Programs/Lander.svelte';
   import Text from '$lib/components/Wrapper/Text.svelte';
-  import { fade } from 'svelte/transition';
-  import { cubicOut, cubicInOut } from 'svelte/easing';
-  import { tweened } from 'svelte/motion';
-  import NormalButton from '$lib/components/Input/NormalButton.svelte';
   import Menu from '$lib/components/Header/Menu.svelte';
-  import { onMount } from 'svelte';
-
-  let scroll: number = 0;
-  let scrollPrev: number;
-  let showHeader: boolean;
-  let height: number = 0;
-  let currentWindow:
-    | 'Lander'
-    | 'Greetings'
-    | 'Contact'
-    | 'Downloads'
-    | 'Interests'
-    | 'Technologies'
-    | 'Resume' = 'Lander';
-
-  const number = tweened(0, {
-    duration: 2000,
-    easing: cubicInOut
-  });
-
-  let tweenRunning = false;
-
-  onMount(() => {
-    number.subscribe((e) => {
-      tweenRunning = true;
-      window.scroll({
-        top: e,
-        left: 0,
-        behavior: 'smooth'
-      });
-    });
-    setInterval(() => (tweenRunning = false), 100);
-    window.addEventListener('wheel', () => {
-      if (tweenRunning) {
-        number.set(scroll, {
-          duration: 0
-        });
-      }
-    });
-  });
-
-  const wheel = (node, options) => {
-    let { scrollable } = options;
-
-    const handler = (e) => {
-      if (!scrollable) e.preventDefault();
-    };
-
-    node.addEventListener('wheel', handler, { passive: false });
-
-    return {
-      update(options) {
-        scrollable = options.scrollable;
-      },
-      destroy() {
-        node.removeEventListener('wheel', handler, { passive: false });
-      }
-    };
-  };
-
-  function navigate() {
-    number.set(scroll, {
-      duration: 0
-    });
-    switch (currentWindow) {
-      case 'Lander':
-        number.set(0);
-
-        break;
-      case 'Resume':
-        number.set(450);
-
-        break;
-      case 'Technologies':
-        number.set(1000);
-
-        break;
-      case 'Interests':
-        number.set(1500);
-
-        break;
-      case 'Contact':
-        number.set(2000);
-
-        break;
-      case 'Downloads':
-        number.set(2500);
-
-        break;
-      case 'Greetings':
-        number.set(3000);
-
-        break;
-    }
-  }
+  import Window from '$lib/Programs/unilities/window.svelte';
+  import { openWindows } from '$lib/Stores/OpenWindows';
 </script>
 
-<svelte:window bind:innerHeight={height} bind:scrollY={scroll} />
+<!-- <Menu /> -->
+<div class="fixed h-full w-full flex flex-col justify-end z-2">
+  <Menu />
+</div>
 
-<div class="fixed flex flex-col h-full w-full justify-center z-20 ">
-  <div class="flex flex-row justify-end">
-    <Menu bind:currentWindow on:windowChanged={() => navigate()} />
-  </div>
-</div>
-<div class="bg-surface">
-  <i class="fa fa-microchip text-text" />
-</div>
-<div class="w-full">
-  <Lander />
-</div>
-<div class="w-full" style:transform={`translate(0, ${scroll * -0.9}px)`}>
-  <Resume />
-</div>
-<div>
-  <Technologies />
-</div>
-<div class="w-full">
-  <Interests />
-</div>
-<div class="w-full">
-  <Contact />
-</div>
-<div class="w-full">
-  <Downloads />
-</div>
+<!-- Render windows -->
+{#if openWindows && $openWindows.length > 0}
+  {#if $openWindows.find((e) => e.title === 'Lander')}
+    <Window title="Bild" id="Lander">
+      <Lander />
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'Greetings')}
+    <Window title="Jonas Focke" id="Greetings">
+      <Greeting />
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'Resume')}
+    <Window title="Laufbahn" id="Resume">
+      <Resume />
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'Technologies')}
+    <Window title="Technologie" id="Technologies">
+      <Technologies />
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'Interests')}
+    <Window title="Interessen" id="Interests">
+      <Interests />
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'Contact')}
+    <Window title="Kontakt" id="Contact">
+      <Contact />
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'Downloads')}
+    <Window title="Dateien" id="Downloads">
+      <Downloads />
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'auto dm')}
+    <Window title="auto dm" id="auto dm">
+      <Text text="Bei der auto dm" size="large" />
+      <div class="mt-2">
+        <Text
+          text="Bei der auto dm konnte ich mein errungenes Fachwissen vertiefen und neue Technologien erforschen. Hier kann ich meine Leidenschaft für SPA Frameworks wie Svelte voll entwickeln."
+        />
+      </div>
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'Beresa')}
+    <Window title="Ausbildung bei Beresa" id="Beresa">
+      <div class="bg-error">
+        <Text text="Beresa GmbH & Co. KG" size="large" />
+        <div class="mt-2">
+          <Text
+            text="In der Ausbildung bei Beresa habe ich gelernt, wie ich mit Typescript arbeiten kann. Wie Git funktioniert, wie man Linux bedient, wie Javascript, HTML und CSS zusammenspielen, wie SQL Datenbanken laufen und wie man Anwendungen per REST-Schnittstelle anspricht. Ich konnte außerdem mein Fachwissen bezüglich Scum vertiefen. Ich durfte im Kundenkontakt, aber auch 'hinter dem Bildschirm' arbeiten."
+          />
+        </div>
+      </div>
+    </Window>
+  {/if}
+
+  {#if $openWindows.find((e) => e.title === 'con terra')}
+    <Window title="Praktikum bei con terra" id="con terra">
+      <Text text="Praktikum bei con terra" size="large" />
+      <div class="mt-2">
+        <Text
+          text="Im Praktikum bei con terra habe ich meine Java Kenntnisse vertiefen können, indem wir dort eine eigenständige Anwendung entwickelt haben, die mit einer REST-Schnittstelle kommuniziert und so genaue Geo-Daten abruft. Ich konnte auch mein Fachwissen bezüglich Scum vertiefen."
+        />
+      </div>
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'studium')}
+    <Window title="Studium an der WWU" id="studium">
+      <Text text="Westfälische Wilhelms Universität" size="large" />
+      <div class="mt-2">
+        <Text
+          text="An der WWU in Münster im Studiengang 'Geoinformatik' erfuhr ich tiefergehende Kenntnisse im Bereich der IT. Dort brachte man mir vor allem die Sprache Java bei, ich konnte mich aber auch mit logischen Problemen auseinandersetzen, so wie Themen rund um die Geologie unseres Planeten. "
+        />
+      </div>
+    </Window>
+  {/if}
+  {#if $openWindows.find((e) => e.title === 'abitur')}
+    <Window title="Abitur an der JCS" id="abitur">
+      <Text text="Johann-Conrad-Schlaun" size="large" />
+      <div class="mt-2">
+        <Text
+          text="Meine Hochschulreife erhielt ich an der JCS Nordkirchen. Hier hatte ich erste Berührungspunkte mit dem Thema Datenbanken und Java Entwicklung."
+        />
+      </div>
+    </Window>
+  {/if}
+{/if}

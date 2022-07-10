@@ -13,11 +13,6 @@
 
 <SvelteToast />
 
-<!-- {#if showNavbar}
-  <div transition:fly={flyOptions} class="">
-    <Header />
-  </div>
-{/if} -->
-<div class="w-full overflow-y-hidden">
+<div class="w-full h-screen bg-wallpaper bg-repeat, bg-cover bg-center">
   <slot />
 </div>
