@@ -6,7 +6,7 @@
   },
   "scripts": {
     "dev": "env-cmd svelte-kit dev",
-    "build": "npm run test:once && env-cmd svelte-kit build && npm run preview",
+    "build": "env-cmd svelte-kit build",
     "preview": "env-cmd svelte-kit preview",
     "test:once": "jest src --coverage --collectCoverageFrom=src/lib/**/*.svelte --silent",
     "test": "jest src --watch --only-changed --silent"
