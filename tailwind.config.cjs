@@ -10,11 +10,7 @@ module.exports = {
       warning: '#f4bb50',
       error: '#f74838',
       info: '#0159C0',
-<<<<<<< HEAD
-      surface: '#2C001E',
-=======
       surface: '#661e34',
->>>>>>> 14b8c38 (modifyed theme)
       text: '#ffe7d6',
       black: '#000000'
     },
