@@ -33,6 +33,7 @@ a basic menu with basic animations
     faPortrait
   } from '@fortawesome/free-solid-svg-icons';
   import Contact from '$lib/sites/Contact.svelte';
+  import { logDOM } from '@testing-library/svelte';
 
   const dispatcher = createEventDispatcher();
 
@@ -42,7 +43,7 @@ a basic menu with basic animations
     selected: boolean;
   }
 
-  export let currentPosition:
+  export let currentWindow:
     | 'Lander'
     | 'Greetings'
     | 'Contact'
@@ -63,99 +64,96 @@ a basic menu with basic animations
       <div class="flex flex-col">
         {#if extended}
           <div
-            class="m-2 transition duration-200 text-{currentPosition ===
-            'Lander'
+            class="m-2 transition duration-200 text-{currentWindow === 'Lander'
               ? 'primary'
               : 'text'}"
-            class:hover:opacity-50={currentPosition !== 'Lander'}
-            class:cursor-pointer={currentPosition !== 'Lander'}
+            class:hover:opacity-50={currentWindow !== 'Lander'}
+            class:cursor-pointer={currentWindow !== 'Lander'}
             on:click={() => {
-              currentPosition = 'Lander';
-              dispatcher('positionChanged');
+              currentWindow = 'Lander';
+              dispatcher('windowChanged');
             }}
           >
             <Fa icon={faPortrait} />
           </div>
           <div
-            class="m-2 transition duration-200  text-{currentPosition ===
+            class="m-2 transition duration-200  text-{currentWindow ===
             'Greetings'
               ? 'primary'
               : 'text'}"
-            class:hover:opacity-50={currentPosition !== 'Greetings'}
-            class:cursor-pointer={currentPosition !== 'Greetings'}
+            class:hover:opacity-50={currentWindow !== 'Greetings'}
+            class:cursor-pointer={currentWindow !== 'Greetings'}
             on:click={() => {
-              currentPosition = 'Greetings';
-              dispatcher('positionChanged');
+              currentWindow = 'Greetings';
+              dispatcher('windowChanged');
             }}
           >
             <Fa icon={faAlignLeft} />
           </div>
           <div
-            class="m-2 transition duration-200 text-{currentPosition ===
-            'Resume'
+            class="m-2 transition duration-200 text-{currentWindow === 'Resume'
               ? 'primary'
               : 'text'}"
-            class:hover:opacity-50={currentPosition !== 'Resume'}
-            class:cursor-pointer={currentPosition !== 'Resume'}
+            class:hover:opacity-50={currentWindow !== 'Resume'}
+            class:cursor-pointer={currentWindow !== 'Resume'}
             on:click={() => {
-              currentPosition = 'Resume';
-              dispatcher('positionChanged');
+              currentWindow = 'Resume';
+              dispatcher('windowChanged');
             }}
           >
             <Fa icon={faTimeline} />
           </div>
           <div
-            class="m-2 transition duration-200 text-{currentPosition ===
+            class="m-2 transition duration-200 text-{currentWindow ===
             'Technologies'
               ? 'primary'
               : 'text'}"
-            class:hover:opacity-50={currentPosition !== 'Technologies'}
-            class:cursor-pointer={currentPosition !== 'Technologies'}
+            class:hover:opacity-50={currentWindow !== 'Technologies'}
+            class:cursor-pointer={currentWindow !== 'Technologies'}
             on:click={() => {
-              currentPosition = 'Technologies';
-              dispatcher('positionChanged');
+              currentWindow = 'Technologies';
+              dispatcher('windowChanged');
             }}
           >
             <Fa icon={faMicrochip} />
           </div>
           <div
-            class="m-2 transition duration-200 text-{currentPosition ===
+            class="m-2 transition duration-200 text-{currentWindow ===
             'Downloads'
               ? 'primary'
               : 'text'}"
-            class:hover:opacity-50={currentPosition !== 'Downloads'}
-            class:cursor-pointer={currentPosition !== 'Downloads'}
+            class:hover:opacity-50={currentWindow !== 'Downloads'}
+            class:cursor-pointer={currentWindow !== 'Downloads'}
             on:click={() => {
-              currentPosition = 'Downloads';
-              dispatcher('positionChanged');
+              currentWindow = 'Downloads';
+              dispatcher('windowChanged');
             }}
           >
             <Fa icon={faCloudArrowDown} />
           </div>
           <div
-            class="m-2 transition duration-200 text-{currentPosition ===
+            class="m-2 transition duration-200 text-{currentWindow ===
             'Interests'
               ? 'primary'
               : 'text'}"
-            class:hover:opacity-50={currentPosition !== 'Interests'}
-            class:cursor-pointer={currentPosition !== 'Interests'}
+            class:hover:opacity-50={currentWindow !== 'Interests'}
+            class:cursor-pointer={currentWindow !== 'Interests'}
             on:click={() => {
-              currentPosition = 'Interests';
-              dispatcher('positionChanged');
+              currentWindow = 'Interests';
+              dispatcher('windowChanged');
             }}
           >
             <Fa icon={faGuitar} />
           </div>
           <div
-            class="m-2 transition duration-200 text-{currentPosition ===
-            'Contact'
+            class="m-2 transition duration-200 text-{currentWindow === 'Contact'
               ? 'primary'
               : 'text'}"
-            class:hover:opacity-50={currentPosition !== 'Contact'}
-            class:cursor-pointer={currentPosition !== 'Contact'}
+            class:hover:opacity-50={currentWindow !== 'Contact'}
+            class:cursor-pointer={currentWindow !== 'Contact'}
             on:click={() => {
-              currentPosition = 'Contact';
-              dispatcher('positionChanged');
+              currentWindow = 'Contact';
+              dispatcher('windowChanged');
             }}
           >
             <Fa icon={faFileSignature} />
@@ -172,16 +170,16 @@ a basic menu with basic animations
         <div
           class="cursor-pointer m-2 transition duration-200 hover:opacity-50"
           on:click={() => {
-            if (currentPosition !== 'Lander') {
-              currentPosition = 'Lander';
+            if (currentWindow !== 'Lander') {
+              currentWindow = 'Lander';
             } else {
-              currentPosition = 'Contact';
+              currentWindow = 'Contact';
             }
-            dispatcher('positionChanged');
+            dispatcher('windowChanged');
           }}
         >
           <Fa
-            class="{currentPosition !== 'Lander'
+            class="{currentWindow !== 'Lander'
               ? 'rotate-180'
               : ''} transition duration-500"
             icon={faArrowDown}

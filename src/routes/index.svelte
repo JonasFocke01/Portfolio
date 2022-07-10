@@ -18,7 +18,7 @@
   let scrollPrev: number;
   let showHeader: boolean;
   let height: number = 0;
-  let currentPosition:
+  let currentWindow:
     | 'Lander'
     | 'Greetings'
     | 'Contact'
@@ -76,7 +76,7 @@
     number.set(scroll, {
       duration: 0
     });
-    switch (currentPosition) {
+    switch (currentWindow) {
       case 'Lander':
         number.set(0);
 
@@ -113,7 +113,7 @@
 
 <div class="fixed flex flex-col h-full w-full justify-center z-20 ">
   <div class="flex flex-row justify-end">
-    <Menu bind:currentPosition on:positionChanged={() => navigate()} />
+    <Menu bind:currentWindow on:windowChanged={() => navigate()} />
   </div>
 </div>
 <div class="bg-surface">
