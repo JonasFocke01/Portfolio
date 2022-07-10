@@ -13,6 +13,8 @@
 
 <SvelteToast />
 
-<div class="w-full h-screen bg-wallpaper bg-repeat, bg-cover bg-center">
+<div
+  class="w-full h-screen bg-wallpaper bg-repeat, bg-cover bg-center overflow-hidden"
+>
   <slot />
 </div>
