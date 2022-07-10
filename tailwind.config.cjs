@@ -20,6 +20,9 @@ module.exports = {
       //   kouhlen: ['Koulen', 'serif-serif'],
       //   lato: ['Lato', 'sans-serif']
       // }
+    },
+    backgroundImage: {
+      wallpaper: "url('/static/windows_wallpaper.jpg')"
     }
   },
   plugins: []
