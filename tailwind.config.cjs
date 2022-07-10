@@ -3,15 +3,15 @@ module.exports = {
   darkMode: 'class',
   theme: {
     colors: {
-      primary: '#050e74',
-      secondary: '#006cc0',
-      accent: '#00bbc6',
+      primary: '#001D6E',
+      secondary: '#0159C0',
+      accent: '#0159C0',
       success: '#4dea3f',
       warning: '#f4bb50',
       error: '#f74838',
-      info: '#eb8a7b',
-      surface: '#0042a4',
-      text: '#00dfbe',
+      info: '#0159C0',
+      surface: '#003D9D',
+      text: '#89DFFE',
       black: '#000000'
     },
     extend: {
