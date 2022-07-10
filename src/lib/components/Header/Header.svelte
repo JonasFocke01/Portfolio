@@ -8,9 +8,9 @@ encapsules all the components in the header
 
   let menuEntrys = [
     { name: 'Lebenslauf', path: '/', selected: false },
-    { name: 'Technologien', path: '/technologies', selected: false },
-    { name: 'Interessen', path: '/interests', selected: false },
-    { name: 'Kontakt + Downloads', path: '/contact', selected: false }
+    { name: 'Technologien', path: '#technologies', selected: false },
+    { name: 'Interessen', path: '#interests', selected: false },
+    { name: 'Kontakt + Downloads', path: '#Sekundarstufe I', selected: false }
   ];
   let showMenu = false;
 </script>

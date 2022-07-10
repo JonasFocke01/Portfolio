@@ -2,13 +2,19 @@
   import '../app.css';
   import { SvelteToast } from '@zerodevx/svelte-toast';
   import Header from '$lib/components/Header/Header.svelte';
+  import { fly } from 'svelte/transition';
+  import Menu from '$lib/components/Header/Menu.svelte';
+
+  let flyOptions = {
+    duration: 500,
+    y: 100
+  };
 </script>
 
 <SvelteToast />
 
-<Header />
-<div class="w-full absolute h-screen bg-primary scroll-smooth">
-  <div class="m-4">
-    <slot />
-  </div>
+<div
+  class="w-full h-screen bg-wallpaper bg-repeat, bg-cover bg-center overflow-hidden"
+>
+  <slot />
 </div>

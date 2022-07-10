@@ -1,0 +1,23 @@
+<script lang="ts">
+  import Text from '$lib/components/Wrapper/Text.svelte';
+</script>
+
+<div >
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+  <Text text="Technologie" />
+</div>
