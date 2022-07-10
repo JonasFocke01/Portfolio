@@ -5,9 +5,9 @@
     "node-version": "16.15.0"
   },
   "scripts": {
-    "dev": "env-cmd svelte-kit dev",
-    "build": "env-cmd svelte-kit build",
-    "preview": "env-cmd svelte-kit preview",
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
     "test:once": "jest src --coverage --collectCoverageFrom=src/lib/**/*.svelte --silent",
     "test": "jest src --watch --only-changed --silent"
   },
