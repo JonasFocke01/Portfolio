@@ -11,7 +11,7 @@ module.exports = {
       error: '#f74838',
       info: '#0159C0',
       surface: '#2C001E',
-      text: '#333333',
+      text: '#ffe7d6',
       black: '#000000'
     },
     extend: {
