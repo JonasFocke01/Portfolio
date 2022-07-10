@@ -5,23 +5,21 @@
   import { openWindows, windowZIndex } from '$lib/Stores/OpenWindows';
   import Fa from 'svelte-fa';
   import { faFilter, faXmark } from '@fortawesome/free-solid-svg-icons';
-  import { logDOM } from '@testing-library/svelte';
 
   export let id: string = '';
   export let title: string = '';
-  let left = 100;
-  let top = 100;
+  let left = Math.random() * 1000;
+  let top = Math.random() * 1000;
 
   let zIndex: Number = 3;
 
   let moving = false;
 
   onMount(() => {
-    zIndex = $windowZIndex + 1;
-    windowZIndex.update((e) => e + 1);
+    onMouseDown();
   });
 
-  function onMouseDown(e) {
+  function onMouseDown() {
     zIndex = $windowZIndex + 1;
     windowZIndex.update((e) => e + 1);
   }
