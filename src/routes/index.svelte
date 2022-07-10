@@ -66,7 +66,7 @@
   {/if}
   {#if $openWindows.find((e) => e.title === 'Beresa')}
     <Window title="Ausbildung bei Beresa" id="Beresa">
-      <div class="bg-error">
+      <div class="">
         <Text text="Beresa GmbH & Co. KG" size="large" />
         <div class="mt-2">
           <Text
