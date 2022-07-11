@@ -17,10 +17,8 @@ a basic menu with basic animations
   import Interests from '$lib/Programs/Interests.svelte';
   import Technologies from '$lib/Programs/Technologies.svelte';
   import Lander from '$lib/Programs/Lander.svelte';
-  import Greeting from '$lib/Programs/Greeting.svelte';
+  import Greetings from '$lib/Programs/Greetings.svelte';
   import Text from '$lib/components/Wrapper/Text.svelte';
-  import Header from '$lib/components/Header/Header.svelte';
-  import { fly } from 'svelte/transition';
   import Card from '$lib/components/Wrapper/Card.svelte';
   import { createEventDispatcher } from 'svelte';
   import Fa from 'svelte-fa';
@@ -38,146 +36,91 @@ a basic menu with basic animations
     faXmark
   } from '@fortawesome/free-solid-svg-icons';
   import Contact from '$lib/Programs/Contact.svelte';
-  import { writable } from 'svelte/store';
   import { openWindows } from '$lib/Stores/OpenWindows';
-  import Window from '$lib/Programs/unilities/window.svelte';
   import { format } from 'date-fns';
+  import Checkbox from '../Input/Checkbox.svelte';
 
   const dispatcher = createEventDispatcher();
 
-  interface MenuEntry {
-    name: string;
-    path: string;
-    selected: boolean;
-  }
+  const menuEntrys = [
+    {
+      name: 'Lander',
+      title: 'Mein Bild',
+      icon: faPortrait,
+      component: Lander
+    },
+    {
+      name: 'Greetings',
+      title: 'Begrüßung',
+      icon: faAlignLeft,
+      component: Greetings
+    },
+    {
+      name: 'Resume',
+      title: 'Lebenslauf',
+      icon: faGraduationCap,
+      component: Resume
+    },
+    {
+      name: 'Technologies',
+      title: 'Technologien',
+      icon: faMicrochip,
+      component: Technologies
+    },
+    {
+      name: 'Downloads',
+      title: 'Downloads',
+      icon: faCloudArrowDown,
+      component: Downloads
+    },
+    {
+      name: 'Interests',
+      title: 'Interessen',
+      icon: faGuitar,
+      component: Interests
+    },
+    {
+      name: 'Contact',
+      title: 'Kontakt',
+      icon: faFileSignature,
+      component: Contact
+    }
+  ];
 </script>
 
-{#if $openWindows && $openWindows.length > 0}
+{#if $openWindows}
   <div class="z-50">
     <Card>
       <div class="flex flex-row h-full ">
         <div class="flex flex-col justify-center w-1/3" />
         <div class="w-1/3 flex flex-col justify-center">
           <div class="flex flex-row justify-center space-x-8">
-            <div
-              class="transition duration-200 hover:opacity-60 cursor-pointer"
-              class:text-primary={$openWindows.find(
-                (e) => e.title === 'Lander'
-              )}
-              on:click={() => {
-                if ($openWindows.find((e) => e.title === 'Lander')) {
-                  openWindows.update((e) =>
-                    e.filter((e) => e.title !== 'Lander')
-                  );
-                } else {
-                  openWindows.update((e) => [...e, { title: 'Lander' }]);
-                }
-              }}
-            >
-              <Fa icon={faPortrait} />
-            </div>
-            <div
-              class="transition duration-200 hover:opacity-60 cursor-pointer"
-              class:text-primary={$openWindows.find(
-                (e) => e.title === 'Greetings'
-              )}
-              on:click={() => {
-                if ($openWindows.find((e) => e.title === 'Greetings')) {
-                  openWindows.update((e) =>
-                    e.filter((e) => e.title !== 'Greetings')
-                  );
-                } else {
-                  openWindows.update((e) => [...e, { title: 'Greetings' }]);
-                }
-              }}
-            >
-              <Fa icon={faAlignLeft} />
-            </div>
-            <div
-              class="transition duration-200 hover:opacity-60 cursor-pointer"
-              class:text-primary={$openWindows.find(
-                (e) => e.title === 'Resume'
-              )}
-              on:click={() => {
-                if ($openWindows.find((e) => e.title === 'Resume')) {
-                  openWindows.update((e) =>
-                    e.filter((e) => e.title !== 'Resume')
-                  );
-                } else {
-                  openWindows.update((e) => [...e, { title: 'Resume' }]);
-                }
-              }}
-            >
-              <Fa icon={faGraduationCap} />
-            </div>
-            <div
-              class="transition duration-200 hover:opacity-60 cursor-pointer"
-              class:text-primary={$openWindows.find(
-                (e) => e.title === 'Technologies'
-              )}
-              on:click={() => {
-                if ($openWindows.find((e) => e.title === 'Technologies')) {
-                  openWindows.update((e) =>
-                    e.filter((e) => e.title !== 'Technologies')
-                  );
-                } else {
-                  openWindows.update((e) => [...e, { title: 'Technologies' }]);
-                }
-              }}
-            >
-              <Fa icon={faMicrochip} />
-            </div>
-            <div
-              class="transition duration-200 hover:opacity-60 cursor-pointer"
-              class:text-primary={$openWindows.find(
-                (e) => e.title === 'Downloads'
-              )}
-              on:click={() => {
-                if ($openWindows.find((e) => e.title === 'Downloads')) {
-                  openWindows.update((e) =>
-                    e.filter((e) => e.title !== 'Downloads')
-                  );
-                } else {
-                  openWindows.update((e) => [...e, { title: 'Downloads' }]);
-                }
-              }}
-            >
-              <Fa icon={faCloudArrowDown} />
-            </div>
-            <div
-              class="transition duration-200 hover:opacity-60 cursor-pointer "
-              class:text-primary={$openWindows.find(
-                (e) => e.title === 'Interests'
-              )}
-              on:click={() => {
-                if ($openWindows.find((e) => e.title === 'Interests')) {
-                  openWindows.update((e) =>
-                    e.filter((e) => e.title !== 'Interests')
-                  );
-                } else {
-                  openWindows.update((e) => [...e, { title: 'Interests' }]);
-                }
-              }}
-            >
-              <Fa icon={faGuitar} />
-            </div>
-            <div
-              class="transition duration-200 hover:opacity-60 cursor-pointer"
-              class:text-primary={$openWindows.find(
-                (e) => e.title === 'Contact'
-              )}
-              on:click={() => {
-                if ($openWindows.find((e) => e.title === 'Contact')) {
-                  openWindows.update((e) =>
-                    e.filter((e) => e.title !== 'Contact')
-                  );
-                } else {
-                  openWindows.update((e) => [...e, { title: 'Contact' }]);
-                }
-              }}
-            >
-              <Fa icon={faFileSignature} />
-            </div>
+            {#each menuEntrys as entry}
+              <div
+                class="transition duration-200 hover:opacity-60 cursor-pointer"
+                class:text-primary={$openWindows.find(
+                  (e) => e[0]?.name.indexOf(entry.name) > 0
+                )}
+                on:click={() => {
+                  if (
+                    !$openWindows.find(
+                      (e) => e[0]?.name.indexOf(entry.name) > 0
+                    )
+                  ) {
+                    openWindows.update((e) => [
+                      ...e,
+                      [entry.component, { title: entry.title, id: entry.name }]
+                    ]);
+                  } else {
+                    openWindows.update((e) =>
+                      e.filter((e) => e[0]?.name.indexOf(entry.name) === -1)
+                    );
+                  }
+                }}
+              >
+                <Fa icon={entry.icon} />
+              </div>
+            {/each}
           </div>
         </div>
         {#key new Date()}
@@ -189,7 +132,7 @@ a basic menu with basic animations
               </div>
               <div
                 class="ml-auto text-4xl flex flex-col justify-center cursor-pointer mr-2"
-                on:click={() => openWindows.set([{ title: 'Desktop' }])}
+                on:click={() => openWindows.set([])}
               >
                 <Fa icon={faXmark} />
               </div>

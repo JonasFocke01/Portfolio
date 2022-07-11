@@ -4,14 +4,14 @@
   import { writable } from 'svelte/store';
   import { openWindows, windowZIndex } from '$lib/Stores/OpenWindows';
   import Fa from 'svelte-fa';
-  import { faFilter, faXmark } from '@fortawesome/free-solid-svg-icons';
+  import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
   export let id: string = '';
   export let title: string = '';
   let left = Math.random() * 1000;
   let top = Math.random() * 1000;
 
-  let zIndex: Number = 3;
+  export let zIndex: Number = 3;
 
   let moving = false;
 
@@ -51,7 +51,9 @@
   <!-- Header -->
   <div
     class="cursor-move bg-primary flex flex-row"
-    on:mousedown={onMouseDownHeader}
+    on:mousedown={(e) => {
+      onMouseDownHeader(e);
+    }}
   >
     <div class="p-1">
       <Text text={title} />
@@ -59,7 +61,9 @@
     <div
       class="ml-auto cursor-pointer text-4xl text-text bg-error w-10 rounded-tr-md"
       on:click={() => {
-        openWindows.update((e) => e.filter((e) => e.title !== id));
+        openWindows.update((e) =>
+          e.filter((e) => e[0]?.name.indexOf(id) === -1)
+        );
       }}
     >
       <div class="flex flex-col text-center">

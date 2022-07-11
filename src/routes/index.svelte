@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Greeting from '$lib/Programs/Greeting.svelte';
+  import Greetings from '$lib/Programs/Greetings.svelte';
   import Contact from '$lib/Programs/Contact.svelte';
   import Downloads from '$lib/Programs/Downloads.svelte';
   import Resume from '$lib/Programs/Resume.svelte';
@@ -39,42 +39,13 @@
 </div>
 
 <!-- Render windows -->
-{#if openWindows && $openWindows.length > 0}
-  {#if $openWindows.find((e) => e.title === 'Lander')}
-    <Window title="Bild" id="Lander">
-      <Lander />
-    </Window>
-  {/if}
-  {#if $openWindows.find((e) => e.title === 'Greetings')}
-    <Window title="Jonas Focke" id="Greetings">
-      <Greeting />
-    </Window>
-  {/if}
-  {#if $openWindows.find((e) => e.title === 'Resume')}
-    <Window title="Laufbahn" id="Resume">
-      <Resume />
-    </Window>
-  {/if}
-  {#if $openWindows.find((e) => e.title === 'Technologies')}
-    <Window title="Technologie" id="Technologies">
-      <Technologies />
-    </Window>
-  {/if}
-  {#if $openWindows.find((e) => e.title === 'Interests')}
-    <Window title="Interessen" id="Interests">
-      <Interests />
-    </Window>
-  {/if}
-  {#if $openWindows.find((e) => e.title === 'Contact')}
-    <Window title="Kontakt" id="Contact">
-      <Contact />
-    </Window>
-  {/if}
-  {#if $openWindows.find((e) => e.title === 'Downloads')}
-    <Window title="Dateien" id="Downloads">
-      <Downloads />
-    </Window>
-  {/if}
+
+{#each $openWindows as [component, props] (props.id)}
+  <Window title={props.title} id={props.id}>
+    <svelte:component this={component} />
+  </Window>
+{/each}
+<!--
   {#if $openWindows.find((e) => e.title === 'auto dm')}
     <Window title="auto dm" id="auto dm">
       <Text text="Bei der auto dm" size="large" />
@@ -128,4 +99,4 @@
       </div>
     </Window>
   {/if}
-{/if}
+{/if} -->

@@ -1,13 +1,13 @@
 import { writable } from 'svelte/store';
 
-interface Window {
-  title: string;
-}
+// interface Window {
+//   title: string;
+// }
 
 /**
  * A store that keeps track of open windows.
  */
-export const openWindows = writable<Array<Window>>([{ title: 'Desktop' }]);
+export const openWindows = writable<any>([]);
 
 /**
  * A store to keep track of the current window.
