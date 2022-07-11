@@ -3,21 +3,23 @@
   import { createEventDispatcher } from 'svelte';
 
   const dispatcher = createEventDispatcher();
+
+  export let testvalue = '123321';
 </script>
 
-<div >
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
-  <Text text="Lander" />
+<div>
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
+  <Text text={`${testvalue}`} />
 </div>

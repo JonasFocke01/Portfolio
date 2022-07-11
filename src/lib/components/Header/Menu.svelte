@@ -13,7 +13,7 @@ a basic menu with basic animations
  -->
 <script lang="ts">
   import Downloads from '$lib/Programs/Downloads.svelte';
-  import Resume from '$lib/Programs/Resume.svelte';
+  import Resume from '$lib/Programs/Resume/Resume.svelte';
   import Interests from '$lib/Programs/Interests.svelte';
   import Technologies from '$lib/Programs/Technologies.svelte';
   import Lander from '$lib/Programs/Lander.svelte';
@@ -36,7 +36,7 @@ a basic menu with basic animations
     faXmark
   } from '@fortawesome/free-solid-svg-icons';
   import Contact from '$lib/Programs/Contact.svelte';
-  import { openWindows } from '$lib/Stores/OpenWindows';
+  import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
   import { format } from 'date-fns';
   import Checkbox from '../Input/Checkbox.svelte';
 
@@ -44,43 +44,43 @@ a basic menu with basic animations
 
   const menuEntrys = [
     {
-      name: 'Lander',
+      id: 'Lander',
       title: 'Mein Bild',
       icon: faPortrait,
       component: Lander
     },
     {
-      name: 'Greetings',
+      id: 'Greetings',
       title: 'Begrüßung',
       icon: faAlignLeft,
       component: Greetings
     },
     {
-      name: 'Resume',
+      id: 'Resume',
       title: 'Lebenslauf',
       icon: faGraduationCap,
       component: Resume
     },
     {
-      name: 'Technologies',
+      id: 'Technologies',
       title: 'Technologien',
       icon: faMicrochip,
       component: Technologies
     },
     {
-      name: 'Downloads',
+      id: 'Downloads',
       title: 'Downloads',
       icon: faCloudArrowDown,
       component: Downloads
     },
     {
-      name: 'Interests',
+      id: 'Interests',
       title: 'Interessen',
       icon: faGuitar,
       component: Interests
     },
     {
-      name: 'Contact',
+      id: 'Contact',
       title: 'Kontakt',
       icon: faFileSignature,
       component: Contact
@@ -99,23 +99,13 @@ a basic menu with basic animations
               <div
                 class="transition duration-200 hover:opacity-60 cursor-pointer"
                 class:text-primary={$openWindows.find(
-                  (e) => e[0]?.name.indexOf(entry.name) > 0
+                  (e) => e[0]?.name.indexOf(entry.id) > 0
                 )}
-                on:click={() => {
-                  if (
-                    !$openWindows.find(
-                      (e) => e[0]?.name.indexOf(entry.name) > 0
-                    )
-                  ) {
-                    openWindows.update((e) => [
-                      ...e,
-                      [entry.component, { title: entry.title, id: entry.name }]
-                    ]);
-                  } else {
-                    openWindows.update((e) =>
-                      e.filter((e) => e[0]?.name.indexOf(entry.name) === -1)
-                    );
-                  }
+                on:click={async () => {
+                  addOrRemoveWindow(entry.component, {
+                    title: entry.title,
+                    id: entry.id
+                  });
                 }}
               >
                 <Fa icon={entry.icon} />
