@@ -26,7 +26,6 @@
 
   function onMouseDownHeader(e) {
     moving = true;
-    //sort array
   }
 
   function onMouseMove(e) {
