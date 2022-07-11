@@ -8,14 +8,18 @@
 
   export let id: string = '';
   export let title: string = '';
-  let left = Math.random() * 1000;
-  let top = Math.random() * 1000;
+  let wHight: number;
+  let wWidth: number;
+  let left = 0;
+  let top = 0;
 
   export let zIndex: Number = 3;
 
   let moving = false;
 
   onMount(() => {
+    left = Math.floor(Math.random() * (wWidth / 1.3));
+    top = Math.floor(Math.random() * (wHight / 2));
     onMouseDown();
   });
 
@@ -40,7 +44,12 @@
   }
 </script>
 
-<svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
+<svelte:window
+  bind:innerHeight={wHight}
+  bind:innerWidth={wWidth}
+  on:mouseup={onMouseUp}
+  on:mousemove={onMouseMove}
+/>
 
 <div
   on:mousedown={onMouseDown}
