@@ -1,10 +1,6 @@
 import { derived, writable } from 'svelte/store';
 import type { SvelteComponent } from 'svelte';
 
-// interface Window {
-//   title: string;
-// }
-
 /**
  * A store that keeps track of open windows.
  */
