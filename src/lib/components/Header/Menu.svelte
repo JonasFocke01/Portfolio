@@ -24,13 +24,10 @@ a basic menu with basic animations
   import Fa from 'svelte-fa';
   import {
     faAlignLeft,
-    faArrowDown,
-    faBars,
     faFileSignature,
     faGuitar,
     faCloudArrowDown,
     faMicrochip,
-    faTimeline,
     faPortrait,
     faGraduationCap,
     faXmark
@@ -38,7 +35,6 @@ a basic menu with basic animations
   import Contact from '$lib/Programs/Contact.svelte';
   import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
   import { format } from 'date-fns';
-  import Checkbox from '../Input/Checkbox.svelte';
 
   const dispatcher = createEventDispatcher();
 
