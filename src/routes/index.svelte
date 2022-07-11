@@ -26,7 +26,7 @@
 <svelte:window use:wheel />
 
 <!-- <Menu /> -->
-<div class="fixed h-full w-full flex flex-col justify-end z-2">
+<div class="h-full w-full flex flex-col justify-end">
   <Menu />
 </div>
 

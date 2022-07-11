@@ -89,7 +89,7 @@ a basic menu with basic animations
 </script>
 
 {#if $openWindows}
-  <div class="z-50">
+  <div class="z-50 relative">
     <Card>
       <div class="flex flex-row h-full ">
         <div class="flex flex-col justify-center w-1/3" />
