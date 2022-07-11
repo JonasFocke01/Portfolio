@@ -14,61 +14,74 @@
   import Abitur from './Abitur.svelte';
   import { writable } from 'svelte/store';
   import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
+  import SmallButton from '$lib/components/Input/SmallButton.svelte';
 
   const dispatcher = createEventDispatcher();
   let displayHint: boolean = true;
 
-  const items = [
+  let items = [
     {
       itemid: 'AutoDm',
       itemtext: 'Anstellung bei der auto dm',
-      component: AutoDm
+      component: AutoDm,
+      visited: false
     },
     {
       itemid: 'Beresa',
       itemtext: 'Ausbildung bei der beresa',
-      component: Beresa
+      component: Beresa,
+      visited: false
     },
     {
       itemid: 'ConTerra',
       itemtext: 'Praktikum bei con terra',
-      component: ConTerra
+      component: ConTerra,
+      visited: false
     },
     {
       itemid: 'Study',
       itemtext: 'Studium an der WWU',
-      component: Study
+      component: Study,
+      visited: false
     },
     {
       itemid: 'Abitur',
       itemtext: 'Abitur an der JCS',
-      component: Abitur
+      component: Abitur,
+      visited: false
     }
   ];
 </script>
 
-<div class="bg-secondary">
-  <div class="mt-4">
-    {#if displayHint}
-      <div
-        class="absolute -mt-4"
-        out:fade={{ duration: 500, easing: cubicInOut }}
-      >
-        <Text text="Klick mich" size="small" />
-      </div>
-    {/if}
-  </div>
+<div class="m-2">
   {#each items as item}
     <div
+      class="mt-2 cursor-pointer"
       on:click={() => {
+        items.find((e) => e.itemid === item.itemid).visited = true;
         displayHint = false;
         addOrRemoveWindow(item.component, {
           title: item.itemtext,
           id: item.itemid
         });
+        items = items;
       }}
     >
-      <Text text={item.itemtext} />
+      {#if item.itemid === 'AutoDm' && displayHint}
+        <div class="absolute" out:fly>
+          <div class="ml-56 -mt-2 rotate-12">
+            <SmallButton label="Klick mich!" />
+          </div>
+        </div>
+      {/if}
+      <Text
+        text={item.itemtext}
+        effect={[
+          'bold',
+          item.visited ? 'strikethrough' : 'underline',
+          item.visited ? 'italic' : null
+        ]}
+      />
     </div>
   {/each}
 </div>
