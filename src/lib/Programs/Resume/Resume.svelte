@@ -15,6 +15,8 @@
   import { writable } from 'svelte/store';
   import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
   import SmallButton from '$lib/components/Input/SmallButton.svelte';
+  import Fa from 'svelte-fa';
+  import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
   const dispatcher = createEventDispatcher();
   let displayHint: boolean = true;
@@ -74,14 +76,17 @@
           </div>
         </div>
       {/if}
-      <Text
-        text={item.itemtext}
-        effect={[
-          'bold',
-          item.visited ? 'strikethrough' : 'underline',
-          item.visited ? 'italic' : null
-        ]}
-      />
+      <div class="flex flex-row">
+        <Text
+          text={item.itemtext}
+          effect={['bold', item.visited ? 'italic' : 'underline']}
+        />
+        {#if item.visited}
+          <div class="ml-1 mt-1 text-success">
+            <Fa icon={faCheck} />
+          </div>
+        {/if}
+      </div>
     </div>
   {/each}
 </div>
