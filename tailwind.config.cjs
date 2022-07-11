@@ -22,7 +22,7 @@ module.exports = {
       // }
     },
     backgroundImage: {
-      wallpaper: "url('/static/windows_wallpaper.jpg')"
+      wallpaper: "url('/static/wallpaper.jpg')"
     }
   },
   plugins: []
