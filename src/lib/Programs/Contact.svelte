@@ -109,7 +109,7 @@
             in:fly={{ duration: transitionDuration, y: -50 }}
             on:introend={() => (playTransition = 6)}
             on:click={() =>
-              navigator.clipboard.writeText('www.jonas-focke@mailbox.org').then(
+              navigator.clipboard.writeText('+491733113571').then(
                 () => {
                   toast.push('Telefon-nummer kopiert!');
                 },
