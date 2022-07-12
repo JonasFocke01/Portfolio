@@ -19,6 +19,7 @@ a basic menu with basic animations
   import Lander from '$lib/Programs/Lander.svelte';
   import Greetings from '$lib/Programs/Greetings.svelte';
   import Text from '$lib/components/Wrapper/Text.svelte';
+  import Svelvet from '$lib/Programs/svelvet.svelte';
   import Card from '$lib/components/Wrapper/Card.svelte';
   import { createEventDispatcher } from 'svelte';
   import Fa from 'svelte-fa';
@@ -79,7 +80,7 @@ a basic menu with basic animations
       id: 'Contact',
       title: 'Kontakt',
       icon: faFileSignature,
-      component: Contact
+      component: Svelvet
     }
   ];
 </script>
