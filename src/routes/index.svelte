@@ -31,7 +31,6 @@
 </div>
 
 <!-- Render windows -->
-
 {#each $openWindows as [component, props] (props.id)}
   <Window title={props.title} id={props.id}>
     <svelte:component this={component} />
