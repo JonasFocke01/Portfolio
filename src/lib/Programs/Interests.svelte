@@ -1,13 +1,86 @@
 <script lang="ts">
   import Text from '$lib/components/Wrapper/Text.svelte';
+  import { spring, tweened } from 'svelte/motion';
+  import { fade } from 'svelte/transition';
+  import { cubicInOut, bounceOut } from 'svelte/easing';
+  import { onMount } from 'svelte';
+  import Fa from 'svelte-fa';
+  import {
+    faBicycle,
+    faGuitar,
+    faCode,
+    faMusic
+  } from '@fortawesome/free-solid-svg-icons';
+  import Typewriter from 'svelte-typewriter';
+
+  let showTypewriter = false;
+  const positionBycicle = tweened(0, { duration: 1700, easing: cubicInOut });
+  const rotationNote = tweened(0, { duration: 2000, easing: cubicInOut });
+  const highlightingWords = tweened(0, { duration: 2000 });
+
+  const wordArrayNote = ['Ich', 'spiele', 'Bassgitarre', 'und'];
 </script>
 
-<div >
-  <Text text="Interessen" />
-  <Text text="Interessen" />
-  <Text text="Interessen" />
-  <Text text="Interessen" />
-  <Text text="Interessen" />
-  <Text text="Interessen" />
-  <Text text="Interessen" />
+<div
+  class="text-text text-4xl p-2 flex flex-col space-y-2"
+  style="width: 500px"
+>
+  <div
+    class="w-full cursor-pointer mt-2"
+    on:click={() => positionBycicle.set(320)}
+  >
+    <div
+      class="bg-secondary z-30 relative"
+      style="left: {$positionBycicle}px; width: {320 - $positionBycicle}px"
+    >
+      <Fa icon={faBicycle} />
+    </div>
+    <div class="absolute -mt-8 ml-16 z-20">
+      <Text text="Ich fahre gern mit dem Rad" />
+    </div>
+  </div>
+  <div class="cursor-pointer mt-2" on:click={() => (showTypewriter = true)}>
+    <Fa icon={faCode} />
+  </div>
+  {#if showTypewriter}
+    <Typewriter>
+      <div class="absolute -mt-10 ml-16 z-20">
+        <Text text="Ich unterstütze openSource Code Projekte" />
+      </div>
+    </Typewriter>
+  {/if}
+  <div
+    class="w-full cursor-pointer mt-2"
+    on:click={() => rotationNote.set(360)}
+  >
+    <div
+      class="fixed"
+      style="transform: rotate({$rotationNote}deg)"
+      on:click={() => highlightingWords.set(1000)}
+    >
+      <Fa icon={faMusic} />
+    </div>
+    {#if $highlightingWords > 0}
+      <div class="absolute flex flex-row  ml-16 z-20">
+        <div class=" mt-1 {$highlightingWords > 100 ? '' : 'opacity-50'}">
+          <Text text="Ich " />
+        </div>
+        <div class=" -mt-1 {$highlightingWords > 200 ? '' : 'opacity-50'}">
+          <Text text="mache " />
+        </div>
+        <div class=" mt-1 {$highlightingWords > 400 ? '' : 'opacity-50'}">
+          <Text text="Musik" />
+        </div>
+        <div class=" -mt-1 {$highlightingWords > 550 ? '' : 'opacity-50'}">
+          <Text text="in" />
+        </div>
+        <div class=" mt-1 {$highlightingWords > 700 ? '' : 'opacity-50'}">
+          <Text text="meiner" />
+        </div>
+        <div class={$highlightingWords > 900 ? '' : 'opacity-50'}>
+          <Text text="Freizeit" />
+        </div>
+      </div>
+    {/if}
+  </div>
 </div>
