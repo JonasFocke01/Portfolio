@@ -62,22 +62,22 @@
     </div>
     {#if $highlightingWords > 0}
       <div class="absolute flex flex-row  ml-16 z-20">
-        <div class=" mt-1 {$highlightingWords > 100 ? '' : 'opacity-50'}">
+        <div class="ml-1 mt-1 {$highlightingWords > 100 ? '' : 'opacity-50'}">
           <Text text="Ich " />
         </div>
-        <div class=" -mt-1 {$highlightingWords > 200 ? '' : 'opacity-50'}">
+        <div class="ml-1 -mt-1 {$highlightingWords > 200 ? '' : 'opacity-50'}">
           <Text text="mache " />
         </div>
-        <div class=" mt-1 {$highlightingWords > 400 ? '' : 'opacity-50'}">
+        <div class="ml-1 mt-1 {$highlightingWords > 400 ? '' : 'opacity-50'}">
           <Text text="Musik" />
         </div>
-        <div class=" -mt-1 {$highlightingWords > 550 ? '' : 'opacity-50'}">
+        <div class="ml-1 -mt-1 {$highlightingWords > 550 ? '' : 'opacity-50'}">
           <Text text="in" />
         </div>
-        <div class=" mt-1 {$highlightingWords > 700 ? '' : 'opacity-50'}">
+        <div class="ml-1 mt-1 {$highlightingWords > 700 ? '' : 'opacity-50'}">
           <Text text="meiner" />
         </div>
-        <div class={$highlightingWords > 900 ? '' : 'opacity-50'}>
+        <div class="ml-1 {$highlightingWords > 900 ? '' : 'opacity-50'}">
           <Text text="Freizeit" />
         </div>
       </div>
