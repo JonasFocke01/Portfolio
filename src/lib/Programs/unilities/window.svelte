@@ -53,7 +53,7 @@
 
 <div
   on:mousedown={onMouseDown}
-  style="left: {left}px; top: {top}px; z-index: {zIndex}; max-width: 50%; min-width: 20%"
+  style="left: {left}px; top: {top}px; z-index: {zIndex}; max-width: 1000px; min-width: 400px; min-height: 200px;"
   class="absolute border-4 rounded-lg bg-secondary"
 >
   <!-- Header -->
