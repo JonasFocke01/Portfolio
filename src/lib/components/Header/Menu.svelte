@@ -36,6 +36,12 @@ a basic menu with basic animations
   import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
   import { format } from 'date-fns';
 
+  let thisDate = new Date();
+
+  setInterval(() => {
+    thisDate = new Date();
+  }, 20000);
+
   const dispatcher = createEventDispatcher();
 
   const menuEntrys = [
@@ -109,12 +115,12 @@ a basic menu with basic animations
             {/each}
           </div>
         </div>
-        {#key new Date()}
+        {#key thisDate}
           <div class="w-1/3 flex flex-row justify-end">
             <div class="w-1/3 bg-error bg-opacity-20 h-full flex flex-row">
               <div class="flex flex-col ml-2">
-                <Text text={format(new Date(), 'HH:mm')} />
-                <Text text={format(new Date(), 'dd.MM.yyyy')} />
+                <Text text={format(thisDate, 'HH:mm')} />
+                <Text text={format(thisDate, 'dd.MM.yyyy')} />
               </div>
               <div
                 class="ml-auto text-4xl flex flex-col justify-center cursor-pointer mr-2"
