@@ -15,7 +15,7 @@
   import { writable } from 'svelte/store';
   import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
   import Fa from 'svelte-fa';
-  import { faCheck } from '@fortawesome/free-solid-svg-icons';
+  import { faCheck } from '@fortawesome/free-solid-svg-icons/index.es';
 
   const dispatcher = createEventDispatcher();
   let displayHint: boolean = true;

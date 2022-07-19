@@ -5,7 +5,7 @@
     faFileImage,
     faFileArchive,
     faFilePdf
-  } from '@fortawesome/free-solid-svg-icons';
+  } from '@fortawesome/free-solid-svg-icons/index.es';
 
   const files = [
     { name: 'Foto', icon: faFileImage, path: '/static/downloads/' },

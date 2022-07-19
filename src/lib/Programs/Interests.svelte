@@ -10,7 +10,7 @@
     faGuitar,
     faCode,
     faMusic
-  } from '@fortawesome/free-solid-svg-icons';
+  } from '@fortawesome/free-solid-svg-icons/index.es';
 
   let showTypewriter = false;
   const positionBycicle = tweened(0, { duration: 1700, easing: cubicInOut });

@@ -8,7 +8,7 @@
   import {
     faMailForward,
     faClipboard
-  } from '@fortawesome/free-solid-svg-icons';
+  } from '@fortawesome/free-solid-svg-icons/index.es';
 
   let playTransition = 0;
 

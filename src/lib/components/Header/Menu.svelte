@@ -31,7 +31,7 @@ a basic menu with basic animations
     faPortrait,
     faGraduationCap,
     faXmark
-  } from '@fortawesome/free-solid-svg-icons';
+  } from '@fortawesome/free-solid-svg-icons/index.es';
   import Contact from '$lib/Programs/Contact.svelte';
   import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
   import { format } from 'date-fns';

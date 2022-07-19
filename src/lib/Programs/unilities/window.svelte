@@ -4,7 +4,7 @@
   import { writable } from 'svelte/store';
   import { openWindows, windowZIndex } from '$lib/Stores/OpenWindows';
   import Fa from 'svelte-fa';
-  import { faXmark } from '@fortawesome/free-solid-svg-icons';
+  import { faXmark } from '@fortawesome/free-solid-svg-icons/index.es';
 
   export let id: string = '';
   export let title: string = '';
