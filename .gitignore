@@ -1,9 +1,14 @@
 .DS_Store
+
 node_modules
-/build
+
 /.svelte-kit
+/.netlify
 /package
+/build
+/coverage
+
 .env
 .env.*
 !.env.example
-coverage
+
