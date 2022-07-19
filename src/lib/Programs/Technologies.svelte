@@ -1,9 +1,8 @@
 <script lang="ts">
-  import List from '$lib/components/Wrapper/List.svelte';
-  import Text from '$lib/components/Wrapper/Text.svelte';
+  import List from '@jonas_focke/svelcon/Wrapper/List.svelte';
+  import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
   import { tweened } from 'svelte/motion';
-  import SmallButton from '$lib/components/Input/SmallButton.svelte';
-  import Typewriter from 'svelte-typewriter';
+  import Button from '@jonas_focke/svelcon/Input/Button.svelte';
   import { onMount } from 'svelte';
   import { elasticInOut } from 'svelte/easing';
   import WordCloud from 'svelte-d3-cloud';
@@ -19,13 +18,13 @@
 
 <div class="m-2">
   <Text
-    text="Ich arbeite aktuell mit mit mehreren Technologien und Programmier-Sprachen."
+    text="Ich arbeite aktuell mit mit mehreren Technologien und Programmier!-Sprachen."
   />
-  <div class="flex flex-row justify-evenly mt-4">
+  <div class="flex flex-row justify-evenly mt-4 space-x-2">
     {#each buttons as button}
-      <SmallButton
-        label={button}
-        additionalClasses="m-2"
+      <Button
+        text={{ text: button }}
+        additionalClasses="px-2"
         on:click={() => {
           chosenText = button + ': ';
         }}
@@ -36,11 +35,11 @@
   <div class="mt-4">
     <div class="flex flex-row">
       <Text text="Diese Dinge kenne ich, weil ich" />
-      <Typewriter>
-        <div class="ml-2">
-          <Text text={chosenText} />
-        </div>
-      </Typewriter>
+      <div class="ml-2">
+        {#key chosenText}
+          <Text typewriter={{ enable: true, speed: 0.3 }} text={chosenText} />
+        {/key}
+      </div>
     </div>
   </div>
   <div class="mt-4">

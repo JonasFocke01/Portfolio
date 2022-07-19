@@ -1,5 +1,8 @@
 module.exports = {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: [
+    './src/**/*.{html,js,svelte,ts}',
+    './node_modules/@jonas_focke/**/*.{html,js,svelte,ts}'
+  ],
   darkMode: 'class',
   theme: {
     colors: {

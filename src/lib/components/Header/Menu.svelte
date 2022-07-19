@@ -18,8 +18,8 @@ a basic menu with basic animations
   import Technologies from '$lib/Programs/Technologies.svelte';
   import Lander from '$lib/Programs/Lander.svelte';
   import Greetings from '$lib/Programs/Greetings.svelte';
-  import Text from '$lib/components/Wrapper/Text.svelte';
-  import Card from '$lib/components/Wrapper/Card.svelte';
+  import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
+  import Card from '@jonas_focke/svelcon/Wrapper/Card.svelte';
   import { createEventDispatcher } from 'svelte';
   import Fa from 'svelte-fa';
   import {
@@ -93,7 +93,7 @@ a basic menu with basic animations
           <div class="flex flex-row justify-center space-x-8">
             {#each menuEntrys as entry}
               <div
-                class="transition duration-200 hover:opacity-60 cursor-pointer"
+                class="transition duration-200 hover:opacity-60 cursor-pointer text-text text-3xl"
                 class:text-primary={$openWindows.find(
                   (e) => e[0]?.name.indexOf(entry.id) > 0
                 )}

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Text from '$lib/components/Wrapper/Text.svelte';
-  import Checkbox from '$lib/components/Input/Checkbox.svelte';
-  import NormalButton from '$lib/components/Input/NormalButton.svelte';
+  import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
+  import Checkbox from '@jonas_focke/svelcon/Input/Checkbox.svelte';
+  import Button from '@jonas_focke/svelcon/Input/Button.svelte';
   import { fly } from 'svelte/transition';
   import { toast } from '@zerodevx/svelte-toast';
   import Fa from 'svelte-fa';
@@ -19,16 +19,16 @@
 
 <div class="m-2 h-64">
   <div class="">
-    <NormalButton
-      label="Kontakt zu Jonas Focke"
+    <Button
+      additionalClasses="px-2"
+      text={{ text: 'Kontakt zu Jonas Focke' }}
       on:click={() => (playTransition = 1)}
-      additionalClasses="p-4"
     />
   </div>
   <div class="w-full flex flex-row mt-4">
     {#if playTransition >= 1}
       <div
-        class="w-1/2 text-center cursor-pointer"
+        class="w-1/2 cursor-pointer flex flex-row justify-center"
         in:fly={{ duration: transitionDuration, x: 100 }}
         on:introend={() => (playTransition = 2)}
         on:click={() => (contactType = 'mail')}
@@ -38,7 +38,7 @@
     {/if}
     {#if playTransition >= 2}
       <div
-        class="w-1/2 text-center cursor-pointer"
+        class="w-1/2 cursor-pointer flex flex-row justify-center"
         in:fly={{ duration: transitionDuration, x: -100 }}
         on:introend={() => (playTransition = 3)}
         on:click={() => (contactType = 'phone')}
@@ -48,13 +48,14 @@
     {/if}
   </div>
   {#if contactType === 'mail'}
-    <div class="w-full text-center flex flex-col mt-4">
+    <div class="w-full flex flex-col mt-4">
       {#if playTransition >= 3}
         <div
+          class="flex flex-row justify-center"
           in:fly={{ duration: transitionDuration, y: -50 }}
           on:introend={() => (playTransition = 4)}
         >
-          <Text text="jonas-focke@mailbox.org" />
+          <Text text="jonas!-focke@mailbox.org" />
         </div>
       {/if}
       <div class="w-full flex flex-row mt-4 text-4xl text-text">
@@ -93,9 +94,10 @@
     </div>
   {/if}
   {#if contactType === 'phone'}
-    <div class="w-full text-center flex flex-col mt-4">
+    <div class="w-full flex flex-col mt-4">
       {#if playTransition >= 3}
         <div
+          class="flex flex-row justify-center"
           in:fly={{ duration: transitionDuration, y: -50 }}
           on:introend={() => (playTransition = 4)}
         >

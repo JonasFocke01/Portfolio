@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Text from '$lib/components/Wrapper/Text.svelte';
+  import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
   import Fa from 'svelte-fa';
   import {
     faFileImage,
