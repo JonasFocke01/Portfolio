@@ -17,20 +17,28 @@
     {
       name: 'Arbeitszeugnis-Beresa',
       icon: faFilePdf,
-      path: '/static/downloads/'
+      path: '/static/downloads/Arbeitszeugnis-Beresa.pdf'
     },
-    { name: 'Abitur-Zeugnis', icon: faFilePdf, path: '/static/downloads/' },
+    {
+      name: 'Abitur-Zeugnis',
+      icon: faFilePdf,
+      path: '/static/downloads/Abitur-Zeugnis.pdf'
+    },
     {
       name: 'Bescheinigung-conterra',
       icon: faFilePdf,
-      path: '/static/downloads/'
+      path: '/static/downloads/Bescheinigung-conterra.pdf'
     },
     {
       name: 'Bescheinigung-Ehemaligenverein',
       icon: faFilePdf,
-      path: '/static/downloads/'
+      path: '/static/downloads/Bescheinigung-Ehemaligenverein.pdf'
     },
-    { name: 'Alle', icon: faFileArchive, path: '/static/downloads/' }
+    {
+      name: 'Alle',
+      icon: faFileArchive,
+      path: '/static/downloads/Unterlagen.zip'
+    }
   ];
 
   function download(fileUrl: string, fileName: string) {
