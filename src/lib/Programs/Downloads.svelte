@@ -8,36 +8,36 @@
   } from '@fortawesome/free-solid-svg-icons/index.es';
 
   const files = [
-    { name: 'Foto', icon: faFileImage, path: '' },
+    { name: 'Foto', icon: faFileImage, path: '/downloads/' },
     {
       name: 'Lebenslauf',
       icon: faFilePdf,
-      path: 'Lebenslauf.pdf'
+      path: '/downloads/Lebenslauf.pdf'
     },
     {
       name: 'Arbeitszeugnis!-Beresa',
       icon: faFilePdf,
-      path: 'Arbeitszeugnis-Beresa.pdf'
+      path: '/downloads/Arbeitszeugnis-Beresa.pdf'
     },
     {
       name: 'Abitur!-Zeugnis',
       icon: faFilePdf,
-      path: 'Abitur-Zeugnis.pdf'
+      path: '/downloads/Abitur-Zeugnis.pdf'
     },
     {
       name: 'Bescheinigung!-conterra',
       icon: faFilePdf,
-      path: 'Bescheinigung-conterra.pdf'
+      path: '/downloads/Bescheinigung-conterra.pdf'
     },
     {
       name: 'Bescheinigung!-Ehemaligenverein',
       icon: faFilePdf,
-      path: 'Bescheinigung-Ehemaligenverein.pdf'
+      path: '/downloads/Bescheinigung-Ehemaligenverein.pdf'
     },
     {
       name: 'Alle',
       icon: faFileArchive,
-      path: 'Unterlagen.zip'
+      path: '/downloads/Unterlagen.zip'
     }
   ];
 
