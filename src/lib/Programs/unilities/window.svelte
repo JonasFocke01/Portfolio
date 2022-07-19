@@ -69,9 +69,7 @@
     <div
       class="ml-auto cursor-pointer text-4xl text-text bg-error w-10 rounded-tr-md"
       on:click={() => {
-        openWindows.update((e) =>
-          e.filter((e) => e[0]?.name.indexOf(id) === -1)
-        );
+        openWindows.update((e) => e.filter((e) => e[1]?.id.indexOf(id) === -1));
       }}
     >
       <div class="flex flex-col text-center">

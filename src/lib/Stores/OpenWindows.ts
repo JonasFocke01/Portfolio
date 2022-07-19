@@ -20,7 +20,7 @@ export async function addOrRemoveWindow(
 ) {
   let windows: Array<any>;
   await openWindows.subscribe((e) => (windows = e));
-  if (!windows.find((e) => e[0]?.name.indexOf(options.id) > 0)) {
+  if (!windows.find((e) => e[1]?.id.indexOf(options.id) > -1)) {
     openWindows.update((e) => [
       ...e,
       [
@@ -33,7 +33,7 @@ export async function addOrRemoveWindow(
     ]);
   } else {
     openWindows.update((e) =>
-      e.filter((e: any) => e[0]?.name.indexOf(options.id) === -1)
+      e.filter((e: any) => e[1]?.id.indexOf(options.id) === -1)
     );
   }
 }

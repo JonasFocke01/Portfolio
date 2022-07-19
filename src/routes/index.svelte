@@ -31,8 +31,10 @@
 </div>
 
 <!-- Render windows -->
-{#each $openWindows as [component, props] (props.id)}
-  <Window title={props.title} id={props.id}>
-    <svelte:component this={component} />
-  </Window>
-{/each}
+{#if $openWindows && $openWindows.length > 0}
+  {#each $openWindows as [component, props] (props.id)}
+    <Window title={props.title} id={props.id}>
+      <svelte:component this={component} />
+    </Window>
+  {/each}
+{/if}
