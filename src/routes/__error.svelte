@@ -1,6 +1,6 @@
 <script>
   import '../app.css';
-  import Text from '$lib/components/Wrapper/Text.svelte';
+  import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
 </script>
 
 <div class="bg-warning w-full h-full transition duration-500">

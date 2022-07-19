@@ -3,8 +3,8 @@ encapsules all the components in the header
  -->
 <script lang="ts">
   import Menu from './Menu.svelte';
-  import MediaQuery from '$lib/components/Wrapper/MediaQuery.svelte';
-  import InplacePopup from '$lib/components/Wrapper/InplacePopup.svelte';
+  import MediaQuery from '@jonas_focke/svelcon/Wrapper/MediaQuery.svelte';
+  import InplacePopup from '@jonas_focke/svelcon/Wrapper/InplacePopup.svelte';
 
   let menuEntrys = [
     { name: 'Lebenslauf', path: '/', selected: false },

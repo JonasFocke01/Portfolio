@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Text from '$lib/components/Wrapper/Text.svelte';
+  import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
   import { spring, tweened } from 'svelte/motion';
   import { fade } from 'svelte/transition';
   import { cubicInOut, bounceOut } from 'svelte/easing';
@@ -11,7 +11,6 @@
     faCode,
     faMusic
   } from '@fortawesome/free-solid-svg-icons';
-  import Typewriter from 'svelte-typewriter';
 
   let showTypewriter = false;
   const positionBycicle = tweened(0, { duration: 1700, easing: cubicInOut });
@@ -39,16 +38,19 @@
       <Text text="Ich fahre gern mit dem Rad" />
     </div>
   </div>
-  <div class="cursor-pointer mt-2" on:click={() => (showTypewriter = true)}>
-    <Fa icon={faCode} />
-  </div>
-  {#if showTypewriter}
-    <Typewriter>
-      <div class="absolute -mt-10 ml-16 z-20">
-        <Text text="Ich unterstütze openSource Code Projekte" />
+  <div class="flex flex-row">
+    <div class="cursor-pointer mt-2" on:click={() => (showTypewriter = true)}>
+      <Fa icon={faCode} />
+    </div>
+    {#if showTypewriter}
+      <div class="mt-3 ml-2 z-20">
+        <Text
+          typewriter={{ enable: true, speed: 0.3 }}
+          text="Ich unterstütze openSource Code Projekte"
+        />
       </div>
-    </Typewriter>
-  {/if}
+    {/if}
+  </div>
   <div
     class="w-full cursor-pointer mt-2"
     on:click={() => rotationNote.set(360)}

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Text from '$lib/components/Wrapper/Text.svelte';
+  import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
   import { fly, fade } from 'svelte/transition';
   import { cubicInOut } from 'svelte/easing';
   import { onMount } from 'svelte';
-  import MediaQuery from '$lib/components/Wrapper/MediaQuery.svelte';
-  import NormalButton from '$lib/components/Input/NormalButton.svelte';
+  import MediaQuery from '@jonas_focke/svelcon/Wrapper/MediaQuery.svelte';
+  import Button from '@jonas_focke/svelcon/Input/Button.svelte';
   import { createEventDispatcher } from 'svelte';
   import Window from '../unilities/window.svelte';
   import AutoDm from './AutoDm.svelte';
@@ -14,7 +14,6 @@
   import Abitur from './Abitur.svelte';
   import { writable } from 'svelte/store';
   import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
-  import SmallButton from '$lib/components/Input/SmallButton.svelte';
   import Fa from 'svelte-fa';
   import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -72,14 +71,16 @@
       {#if item.itemid === 'AutoDm' && displayHint}
         <div class="absolute" out:fly>
           <div class="ml-56 -mt-2 rotate-12">
-            <SmallButton label="Klick mich!" />
+            <Button
+              text={{ text: 'Klick mich!' }}
+              additionalClasses="py-0 px-0"
+            />
           </div>
         </div>
       {/if}
       <div class="flex flex-row">
         <Text
-          text={item.itemtext}
-          effect={['bold', item.visited ? 'italic' : 'underline']}
+          text={item.visited ? `*#${item.itemtext}#*` : `*_${item.itemtext}_*`}
         />
         {#if item.visited}
           <div class="ml-1 mt-1 text-success">
