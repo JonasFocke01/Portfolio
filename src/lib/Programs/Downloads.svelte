@@ -8,7 +8,7 @@
   } from '@fortawesome/free-solid-svg-icons/index.es';
 
   const files = [
-    { name: 'Foto', icon: faFileImage, path: '/downloads/' },
+    { name: 'Foto', icon: faFileImage, path: '/downloads/Bild.jpeg' },
     {
       name: 'Lebenslauf',
       icon: faFilePdf,

@@ -4,22 +4,7 @@
 
   const dispatcher = createEventDispatcher();
 
-  export let testvalue = '123321';
+  export let testvalue = 'rrrrr';
 </script>
 
-<div>
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-  <Text text={`${testvalue}`} />
-</div>
+<img src="/downloads/Bild.jpeg" alt="Jonas Focke Bild" />
