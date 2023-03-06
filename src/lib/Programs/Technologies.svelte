@@ -6,7 +6,7 @@
   let chosenText = '___________________________';
 
   let buttons: Array<string> = [
-    'in Meinem Job damit arbeite',
+    'in Meinem Job damit arbeite(te)',
     'privat damit bastle',
     'damit in der Vergangenheit zu tun hatte'
   ];
@@ -39,25 +39,20 @@
     </div>
   </div>
   <div class="mt-4">
-    {#if chosenText === 'in Meinem Job damit arbeite: '}
+    {#if chosenText === 'in Meinem Job damit arbeite(te): '}
       <WordCloud
         words={[
           { text: 'HTML', count: 90 },
           { text: 'CSS', count: 80 },
           { text: 'Javascript', count: 70 },
           { text: 'Typescript', count: 120 },
-          { text: 'jQuery', count: 70 },
           { text: 'MariaDB (mySQL)', count: 85 },
           { text: 'PHP', count: 90 },
-          { text: 'REST', count: 100 },
           { text: 'Svelte', count: 130 },
-          { text: 'Git', count: 130 },
-          { text: 'NPM', count: 80 },
-          { text: 'Bitbucket', count: 70 },
-          { text: 'Jira', count: 100 },
-          { text: 'MS Office', count: 60 },
           { text: 'TailwindCSS', count: 75 },
-          { text: 'Scrum', count: 100 }
+          { text: 'VueJS', count: 95 },
+          { text: 'InertiaJS', count: 70 },
+          { text: 'Laravel', count: 80 }
         ]}
         backgroundColor="secondary"
         minRotate={-10}
@@ -66,19 +61,13 @@
     {:else if chosenText === 'privat damit bastle: '}
       <WordCloud
         words={[
-          { text: 'HTML', count: 90 },
           { text: 'CSS', count: 80 },
           { text: 'Typescript', count: 120 },
-          { text: 'REST', count: 100 },
           { text: 'Svelte', count: 120 },
-          { text: 'Git', count: 120 },
-          { text: 'NPM', count: 80 },
-          { text: 'MS Office', count: 60 },
           { text: 'TailwindCSS', count: 75 },
-          { text: 'GitHub', count: 110 },
-          { text: 'MongoDB', count: 100 },
           { text: 'Linux', count: 90 },
-          { text: 'Netlify', count: 70 }
+          { text: 'Netlify', count: 70 },
+          { text: 'Rust', count: 70 }
         ]}
         backgroundColor="secondary"
         minRotate={-10}
@@ -89,17 +78,11 @@
         words={[
           { text: 'Java', count: 90 },
           { text: 'Python', count: 85 },
-          { text: 'IntelliJ', count: 70 },
-          { text: 'BlueJ', count: 60 },
-          { text: 'REST', count: 100 },
-          { text: 'Eclipse', count: 110 },
-          { text: 'Trello', count: 70 },
           { text: 'C', count: 70 },
           { text: 'C++', count: 80 },
           { text: 'C#', count: 90 },
           { text: 'Firebase', count: 80 },
           { text: 'Active Directory', count: 85 },
-          { text: 'AutoIt', count: 90 },
           { text: 'Selenium', count: 105 }
         ]}
         backgroundColor="secondary"
