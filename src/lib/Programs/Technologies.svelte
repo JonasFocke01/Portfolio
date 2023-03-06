@@ -1,10 +1,6 @@
 <script lang="ts">
-  import List from '@jonas_focke/svelcon/Wrapper/List.svelte';
   import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
-  import { tweened } from 'svelte/motion';
   import Button from '@jonas_focke/svelcon/Input/Button.svelte';
-  import { onMount } from 'svelte';
-  import { elasticInOut } from 'svelte/easing';
   import WordCloud from 'svelte-d3-cloud';
 
   let chosenText = '___________________________';

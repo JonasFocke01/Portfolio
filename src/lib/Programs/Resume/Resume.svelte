@@ -1,23 +1,16 @@
 <script lang="ts">
   import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
-  import { fly, fade } from 'svelte/transition';
-  import { cubicInOut } from 'svelte/easing';
-  import { onMount } from 'svelte';
-  import MediaQuery from '@jonas_focke/svelcon/Wrapper/MediaQuery.svelte';
+  import { fly } from 'svelte/transition';
   import Button from '@jonas_focke/svelcon/Input/Button.svelte';
-  import { createEventDispatcher } from 'svelte';
-  import Window from '../unilities/window.svelte';
   import AutoDm from './AutoDm.svelte';
   import Beresa from './Beresa.svelte';
   import ConTerra from './ConTerra.svelte';
   import Study from './Study.svelte';
   import Abitur from './Abitur.svelte';
-  import { writable } from 'svelte/store';
-  import { openWindows, addOrRemoveWindow } from '$lib/Stores/OpenWindows';
+  import { addOrRemoveWindow } from '$lib/Stores/OpenWindows';
   import Fa from 'svelte-fa';
   import { faCheck } from '@fortawesome/free-solid-svg-icons/index.es';
 
-  const dispatcher = createEventDispatcher();
   let displayHint: boolean = true;
 
   let items = [

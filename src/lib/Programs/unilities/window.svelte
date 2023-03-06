@@ -1,7 +1,6 @@
 <script lang="ts">
   import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
-  import { onDestroy, onMount } from 'svelte';
-  import { writable } from 'svelte/store';
+  import { onMount } from 'svelte';
   import { openWindows, windowZIndex } from '$lib/Stores/OpenWindows';
   import Fa from 'svelte-fa';
   import { faXmark } from '@fortawesome/free-solid-svg-icons/index.es';

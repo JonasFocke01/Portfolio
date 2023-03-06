@@ -1,6 +1,5 @@
 <script lang="ts">
   import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
-  import Checkbox from '@jonas_focke/svelcon/Input/Checkbox.svelte';
   import Button from '@jonas_focke/svelcon/Input/Button.svelte';
   import { fly } from 'svelte/transition';
   import { toast } from '@zerodevx/svelte-toast';
