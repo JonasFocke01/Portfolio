@@ -7,6 +7,7 @@
   import ConTerra from './ConTerra.svelte';
   import Study from './Study.svelte';
   import Abitur from './Abitur.svelte';
+  import Upflat from './Upflat.svelte';
   import { addOrRemoveWindow } from '$lib/Stores/OpenWindows';
   import Fa from 'svelte-fa';
   import { faCheck } from '@fortawesome/free-solid-svg-icons/index.es';
@@ -14,6 +15,12 @@
   let displayHint: boolean = true;
 
   let items = [
+    {
+      itemid: 'UPFLAT !- STF',
+      itemtext: 'Anstellung bei der UPFLAT !- STF',
+      component: Upflat,
+      visited: false
+    },
     {
       itemid: 'AutoDm',
       itemtext: 'Anstellung bei der auto dm',
