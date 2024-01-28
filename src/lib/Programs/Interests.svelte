@@ -1,13 +1,10 @@
 <script lang="ts">
   import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
-  import { spring, tweened } from 'svelte/motion';
-  import { fade } from 'svelte/transition';
-  import { cubicInOut, bounceOut } from 'svelte/easing';
-  import { onMount } from 'svelte';
+  import { tweened } from 'svelte/motion';
+  import { cubicInOut } from 'svelte/easing';
   import Fa from 'svelte-fa';
   import {
     faBicycle,
-    faGuitar,
     faCode,
     faMusic
   } from '@fortawesome/free-solid-svg-icons/index.es';
@@ -16,8 +13,6 @@
   const positionBycicle = tweened(0, { duration: 1700, easing: cubicInOut });
   const rotationNote = tweened(0, { duration: 2000, easing: cubicInOut });
   const highlightingWords = tweened(0, { duration: 2000 });
-
-  const wordArrayNote = ['Ich', 'spiele', 'Bassgitarre', 'und'];
 </script>
 
 <div
