@@ -29,8 +29,8 @@
     >
       <Fa icon={faBicycle} />
     </div>
-    <div class="absolute -mt-8 ml-16 z-20">
-      <Text text="Ich fahre gern mit dem Rad" />
+    <div class="absolute -mt-8 ml-20 z-20">
+      <Text text="Ich mache gerne Sport" />
     </div>
   </div>
   <div class="flex flex-row">
