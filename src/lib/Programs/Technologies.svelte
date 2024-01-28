@@ -46,13 +46,12 @@
           { text: 'CSS', count: 80 },
           { text: 'Javascript', count: 70 },
           { text: 'Typescript', count: 120 },
-          { text: 'MariaDB (mySQL)', count: 85 },
           { text: 'PHP', count: 90 },
           { text: 'Svelte', count: 130 },
           { text: 'TailwindCSS', count: 75 },
           { text: 'VueJS', count: 95 },
           { text: 'InertiaJS', count: 70 },
-          { text: 'Laravel', count: 80 }
+          { text: 'Laravel', count: 80 },
         ]}
         backgroundColor="secondary"
         minRotate={-10}
