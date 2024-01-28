@@ -1,7 +1,5 @@
 <script lang="ts">
   import Text from '@jonas_focke/svelcon/Wrapper/Text.svelte';
-  import { fly } from 'svelte/transition';
-  import Button from '@jonas_focke/svelcon/Input/Button.svelte';
   import AutoDm from './AutoDm.svelte';
   import Beresa from './Beresa.svelte';
   import ConTerra from './ConTerra.svelte';
@@ -68,16 +66,6 @@
         items = items;
       }}
     >
-      {#if item.itemid === 'AutoDm' && displayHint}
-        <div class="absolute" out:fly>
-          <div class="ml-56 -mt-2 rotate-12">
-            <Button
-              text={{ text: 'Klick mich!' }}
-              additionalClasses="py-0 px-0"
-            />
-          </div>
-        </div>
-      {/if}
       <div class="flex flex-row">
         <Text
           text={item.visited ? `*#${item.itemtext}#*` : `*_${item.itemtext}_*`}
