@@ -51,7 +51,7 @@
           { text: 'TailwindCSS', count: 75 },
           { text: 'VueJS', count: 95 },
           { text: 'InertiaJS', count: 70 },
-          { text: 'Laravel', count: 80 },
+          { text: 'Laravel', count: 80 }
         ]}
         backgroundColor="secondary"
         minRotate={-10}
