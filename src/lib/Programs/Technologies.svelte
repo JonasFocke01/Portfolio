@@ -30,7 +30,9 @@
 
   <div class="mt-4">
     <div class="flex flex-row">
-      <Text text="Diese Dinge kenne ich, weil ich" />
+      <Text
+        text="Hier eine engere Auswahl der Dinge, die ich kenne, weil ich"
+      />
       <div class="ml-2">
         {#key chosenText}
           <Text typewriter={{ enable: true, speed: 0.3 }} text={chosenText} />
